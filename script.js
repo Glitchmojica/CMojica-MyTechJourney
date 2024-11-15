@@ -4,10 +4,20 @@ document.addEventListener("DOMContentLoaded", () => {
     function showSlide(index) {
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');
-
+        
         slides.forEach((slide, i) => {
+            const video = slide.querySelector('video');
             slide.classList.toggle('active', i === index);
             dots[i].classList.toggle('active', i === index);
+
+            if (video) {
+                if (i === index) {
+                    video.play();  // Play the video on the active slide
+                } else {
+                    video.pause(); // Pause the video on inactive slides
+                    video.currentTime = 0; // Reset video to start
+                }
+            }
         });
     }
 
