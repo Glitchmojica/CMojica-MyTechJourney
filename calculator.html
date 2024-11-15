@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miles Per Gallon Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Logo Section -->
+    <div class="logo">
+        <img src="calculator-logo.png" alt="Calculator Logo">
+    </div>
+
+    <!-- Calculator Form -->
+    <div class="calculator">
+        <h1>Calculate Miles Per Gallon</h1>
+        
+        <!-- Miles Traveled Input -->
+        <label for="milesTraveled">Miles Traveled:</label>
+        <input type="number" id="milesTraveled" placeholder="Enter miles traveled" required>
+
+        <!-- Gallons Used Input -->
+        <label for="gallonsUsed">Gallons of Gas Used:</label>
+        <input type="number" id="gallonsUsed" placeholder="Enter gallons of gas used" required>
+
+        <!-- Calculate Button -->
+        <button onclick="calculateMPG()">Calculate MPG</button>
+
+        <!-- Result Display -->
+        <div id="result">
+            <p>Your MPG: <span id="mpgResult">0</span></p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
