@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Tech Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body id="index-page">
+    <header>
+        <img src="CSM-LOGO.png" alt="Elevate Logo" class="logo">
+        <h1>My Tech Journey</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Class Assignments</a>
+                    <ul class="dropdown-content">
+                        <li><a href="Calculator.html">Calculator</a></li>
+                        <!-- Additional dropdown options can be added here -->
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Slider Section with Images -->
+        <div class="slider-container">
+            <div class="slide active">
+                <img src="Historyof1111Marcus.JPG" alt="History of 1111 Marcus">
+                <div class="caption">Exploring the history of 1111 Marcus.</div>
+            </div>
+            <div class="slide">
+                <img src="MarcusAveHallway.JPG" alt="Marcus Ave Hallway">
+                <div class="caption">A familiar hallway at Marcus Avenue.</div>
+            </div>
+            <div class="slide">
+                <img src="NorthHall.heic" alt="North Hall">
+                <div class="caption">The iconic North Hall at our campus.</div>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <a class="prev" onclick="changeSlide(-1)">❮</a>
+            <a class="next" onclick="changeSlide(1)">❯</a>
+        </div>
+
+        <!-- Dots for Navigation -->
+        <div class="dots">
+            <span class="dot active" onclick="setSlide(0)"></span>
+            <span class="dot" onclick="setSlide(1)"></span>
+            <span class="dot" onclick="setSlide(2)"></span>
+        </div>
+    </div>
+
+    <!-- Intro Section with Customized Text -->
+    <h2>Welcome to My Tech Journey!</h2>
+    <p style="text-align: left; font-weight: bold;">
+        Hi, I'm Christopher Mojica, a passionate Computer Information Systems student at Bronx Community College. Technology isn't just an academic pursuit for me; it’s a creative medium through which I bring my ideas to life. Whether it’s software development, web design, or digital art, I'm always looking for ways to push the boundaries of what I can create and how I can make an impact.
+    </p>
+    <p style="text-align: left; font-weight: bold;">
+        On this page, you’ll discover my projects and collaborations that span tech, music, artwork, and fashion design. Each piece represents a unique milestone in my journey, and I’m excited to share it with you. My goal is to connect with fellow enthusiasts, collaborators, and mentors who share a vision of leveraging technology to make a difference. Thank you for stopping by, and I invite you to explore my work and reach out if our interests align!
+    </p>
+
+    <section id="quote-section">
+        <div id="quote-container">
+            <h2 id="quote-text">“Creativity is intelligence having fun.”</h2>
+            <p id="quote-author">- Albert Einstein</p>
+            <img id="chibi-einstein" src="chibi-einstein.png" alt="Chibi Albert Einstein">
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Elevator. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
