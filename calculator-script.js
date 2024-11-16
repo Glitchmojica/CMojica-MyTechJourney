@@ -1,17 +1,13 @@
 function calculateMPG() {
-    // Get input values
-    var milesTraveled = parseFloat(document.getElementById("milesTraveled").value);
-    var gallonsUsed = parseFloat(document.getElementById("gallonsUsed").value);
+    const milesTraveled = document.getElementById("milesTraveled").value;
+    const gallonsUsed = document.getElementById("gallonsUsed").value;
+    const mpgResult = document.getElementById("mpgResult");
 
-    // Check if inputs are valid
-    if (isNaN(milesTraveled) || isNaN(gallonsUsed) || gallonsUsed === 0) {
-        alert("Please enter valid numbers for miles and gallons.");
-        return;
+    if (milesTraveled > 0 && gallonsUsed > 0) {
+        const mpg = milesTraveled / gallonsUsed;
+        mpgResult.textContent = mpg.toFixed(2);
+    } else {
+        mpgResult.textContent = "0";
+        alert("Please enter valid numbers for both fields.");
     }
-
-    // Calculate miles per gallon
-    var milesPerGallon = milesTraveled / gallonsUsed;
-
-    // Display the result
-    document.getElementById("mpgResult").innerText = milesPerGallon.toFixed(2);
 }

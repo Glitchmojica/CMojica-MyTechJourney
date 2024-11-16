@@ -1,6 +1,6 @@
-html, body {
+body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Tech-like gradient */
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     color: #ccc;
     margin: 0;
     padding: 0;
@@ -107,10 +107,13 @@ nav ul li a {
 
 .slider-container .slide {
     display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .slider-container .slide.active {
     display: block;
+    opacity: 1;
 }
 
 .slider-container img, .slider-container video {
@@ -118,7 +121,6 @@ nav ul li a {
     height: auto;
     object-fit: contain;
     display: block;
-    transition: opacity 0.5s ease-in-out;
 }
 
 .caption {
@@ -186,6 +188,20 @@ nav ul li a {
 
 .dot.active, .dot:hover {
     background-color: #717171;
+}
+
+.bio-text {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bio-text p {
+    color: #fff;
 }
 
 footer {
