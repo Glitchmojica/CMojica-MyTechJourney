@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
 
     function showSlide(index) {
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        
         slides.forEach((slide, i) => {
             const video = slide.querySelector('video');
-            slide.classList.toggle('active', i === index);
+            slide.style.display = i === index ? 'block' : 'none';
+            slide.style.opacity = i === index ? '1' : '0';
             dots[i].classList.toggle('active', i === index);
 
             if (video) {
@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function changeSlide(n) {
-        const slides = document.querySelectorAll('.slide');
         currentSlideIndex = (currentSlideIndex + n + slides.length) % slides.length;
         showSlide(currentSlideIndex);
     }
@@ -41,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
         nextBtn.addEventListener('click', () => changeSlide(1));
     }
 
-    const dots = document.querySelectorAll('.dot');
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => setSlide(index));
     });

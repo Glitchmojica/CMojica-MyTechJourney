@@ -1,13 +1,13 @@
+/* Basic styles for body and text */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #ccc;
+    background: #f4f4f4;
+    color: #333;
     margin: 0;
     padding: 0;
-    overflow-y: auto; 
-    min-height: 100vh;
 }
 
+/* Styling for the header and navigation */
 header {
     background-color: #004080;
     padding: 20px;
@@ -53,10 +53,7 @@ nav ul li a {
     font-weight: bold;
 }
 
-.dropdown {
-    position: relative;
-}
-
+/* Styling for dropdown */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -87,6 +84,7 @@ nav ul li a {
     display: block;
 }
 
+/* Styling for other components such as slideshow */
 .container {
     max-width: 800px;
     margin: 20px auto;
@@ -188,20 +186,6 @@ nav ul li a {
 
 .dot.active, .dot:hover {
     background-color: #717171;
-}
-
-.bio-text {
-    max-width: 800px;
-    margin: 20px auto;
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.bio-text p {
-    color: #fff;
 }
 
 footer {
