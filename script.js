@@ -56,4 +56,56 @@ document.addEventListener("DOMContentLoaded", () => {
     quoteContainer.addEventListener('mouseout', () => {
         chibiEinstein.style.display = 'none';
     });
+
+    // Cursor setup
+    let clientX = -100;
+    let clientY = -100;
+    const innerCursor = document.querySelector(".cursor--small");
+
+    document.addEventListener("mousemove", (event) => {
+        clientX = event.clientX;
+        clientY = event.clientY;
+    });
+
+    function initCursor() {
+        const render = () => {
+            innerCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+            requestAnimationFrame(render);
+        };
+        requestAnimationFrame(render);
+    }
+
+    initCursor();
+
+    // Set up canvas for the red circle cursor
+    function initCanvas() {
+        const canvas = document.querySelector(".cursor--canvas");
+        if (!canvas) return;  // Ensure canvas exists to avoid errors
+        const shapeBounds = { width: 75, height: 75 };
+
+        paper.setup(canvas);
+        const strokeColor = "rgba(255, 0, 0, 0.5)";
+        const strokeWidth = 1;
+        const segments = 8;
+        const radius = 15;
+
+        const polygon = new paper.Path.RegularPolygon(new paper.Point(0, 0), segments, radius);
+        polygon.strokeColor = strokeColor;
+        polygon.strokeWidth = strokeWidth;
+        polygon.smooth();
+
+        const group = new paper.Group([polygon]);
+        group.applyMatrix = false;
+
+        const noiseObjects = polygon.segments.map(() => new SimplexNoise());
+        let lastX = 0, lastY = 0;
+
+        paper.view.onFrame = (event) => {
+            lastX += (clientX - lastX) * 0.2;
+            lastY += (clientY - lastY) * 0.2;
+            group.position = new paper.Point(lastX, lastY);
+        }
+    }
+
+    initCanvas();
 });
