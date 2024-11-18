@@ -15,10 +15,9 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li class="dropdown">
-                    <a href="#">Class Assignments</a>
+                    <a href="#" class="dropbtn">Class Assignments</a>
                     <ul class="dropdown-content">
-                        <li><a href="Calculator.html">Calculator</a></li>
-                        <!-- Additional dropdown options can be added here -->
+                        <li><a href="calculator.html">Calculator</a></li>
                     </ul>
                 </li>
             </ul>
@@ -26,7 +25,8 @@
     </header>
 
     <div class="container">
-        <!-- Slider Section with Images -->
+
+        <!-- Slider Section with Images and Videos -->
         <div class="slider-container">
             <div class="slide active">
                 <img src="Historyof1111Marcus.JPG" alt="History of 1111 Marcus">
@@ -37,8 +37,12 @@
                 <div class="caption">A familiar hallway at Marcus Avenue.</div>
             </div>
             <div class="slide">
-                <img src="NorthHall.heic" alt="North Hall">
-                <div class="caption">The iconic North Hall at our campus.</div>
+                <video src="MarcusAveOffice.mp4" muted loop></video>
+                <div class="caption">A peek into one of our workspaces.</div>
+            </div>
+            <div class="slide">
+                <video src="BCC-HallofFame.mp4" muted loop></video>
+                <div class="caption">A glimpse of our Hall of Fame.</div>
             </div>
 
             <!-- Navigation Arrows -->
@@ -51,11 +55,16 @@
             <span class="dot active" onclick="setSlide(0)"></span>
             <span class="dot" onclick="setSlide(1)"></span>
             <span class="dot" onclick="setSlide(2)"></span>
+            <span class="dot" onclick="setSlide(3)"></span>
         </div>
     </div>
 
     <!-- Intro Section with Customized Text -->
     <h2>Welcome to My Tech Journey!</h2>
+    <!-- Professional Headshot -->
+    <div class="headshot">
+        <img src="CSM-PROFESSIONAL.jpg" alt="Professional Headshot" class="responsive-img">
+    </div>
     <p style="text-align: left; font-weight: bold;">
         Hi, I'm Christopher Mojica, a passionate Computer Information Systems student at Bronx Community College. Technology isn't just an academic pursuit for me; it’s a creative medium through which I bring my ideas to life. Whether it’s software development, web design, or digital art, I'm always looking for ways to push the boundaries of what I can create and how I can make an impact.
     </p>

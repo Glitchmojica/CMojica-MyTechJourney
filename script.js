@@ -1,18 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
     let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
 
     function showSlide(index) {
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-
         slides.forEach((slide, i) => {
             slide.classList.toggle('active', i === index);
             dots[i].classList.toggle('active', i === index);
+
+            const video = slide.querySelector('video');
+            if (video) {
+                if (i === index) {
+                    video.play();
+                } else {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            }
         });
     }
 
     function changeSlide(n) {
-        const slides = document.querySelectorAll('.slide');
         currentSlideIndex = (currentSlideIndex + n + slides.length) % slides.length;
         showSlide(currentSlideIndex);
     }
@@ -26,17 +34,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
-    if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', () => changeSlide(-1));
-        nextBtn.addEventListener('click', () => changeSlide(1));
-    }
+    prevBtn.addEventListener('click', () => changeSlide(-1));
+    nextBtn.addEventListener('click', () => changeSlide(1));
 
-    const dots = document.querySelectorAll('.dot');
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => setSlide(index));
     });
 
-    // Show Chibi-Einstein on hover
+    // Handle dropdown menu behavior
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.addEventListener('click', function(event) {
+        event.preventDefault();
+        const content = this.querySelector('.dropdown-content');
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Chibi Einstein hover logic
     const quoteContainer = document.getElementById('quote-container');
     const chibiEinstein = document.getElementById('chibi-einstein');
     chibiEinstein.style.display = 'none';
