@@ -3,15 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
 
+    // Show specific slide and toggle visibility of video
     function showSlide(index) {
         slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
-            dots[i].classList.toggle('active', i === index);
+            const isActive = i === index;
+            slide.classList.toggle('active', isActive);
+            dots[i]?.classList.toggle('active', isActive);
 
+            // Handle video play/pause
             const video = slide.querySelector('video');
             if (video) {
-                if (i === index) {
-                    video.play();
+                if (isActive) {
+                    video.play().catch((err) => console.warn("Error playing video:", err));
                 } else {
                     video.pause();
                     video.currentTime = 0;
@@ -20,45 +23,65 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Change slide by a given number (e.g., next or previous)
     function changeSlide(n) {
         currentSlideIndex = (currentSlideIndex + n + slides.length) % slides.length;
         showSlide(currentSlideIndex);
     }
 
+    // Set a specific slide as active
     function setSlide(index) {
         currentSlideIndex = index;
         showSlide(currentSlideIndex);
     }
 
+    // Initial slide setup
     showSlide(currentSlideIndex);
 
+    // Navigation buttons
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
-    prevBtn.addEventListener('click', () => changeSlide(-1));
-    nextBtn.addEventListener('click', () => changeSlide(1));
+    prevBtn?.addEventListener('click', () => changeSlide(-1));
+    nextBtn?.addEventListener('click', () => changeSlide(1));
 
+    // Dots navigation
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => setSlide(index));
     });
 
-    // Handle dropdown menu behavior
+    // Dropdown menu behavior
     const dropdown = document.querySelector('.dropdown');
-    dropdown.addEventListener('click', function(event) {
-        event.preventDefault();
-        const content = this.querySelector('.dropdown-content');
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-    });
+    if (dropdown) {
+        dropdown.addEventListener('click', function (event) {
+            const content = this.querySelector('.dropdown-content');
+            if (content) {
+                event.preventDefault();
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function (event) {
+            if (!dropdown.contains(event.target)) {
+                const content = dropdown.querySelector('.dropdown-content');
+                if (content) content.style.display = 'none';
+            }
+        });
+    }
 
     // Chibi Einstein hover logic
     const quoteContainer = document.getElementById('quote-container');
     const chibiEinstein = document.getElementById('chibi-einstein');
-    chibiEinstein.style.display = 'none';
 
-    quoteContainer.addEventListener('mouseover', () => {
-        chibiEinstein.style.display = 'block';
-    });
-
-    quoteContainer.addEventListener('mouseout', () => {
+    if (quoteContainer && chibiEinstein) {
         chibiEinstein.style.display = 'none';
-    });
+
+        quoteContainer.addEventListener('mouseenter', () => {
+            chibiEinstein.style.display = 'block';
+        });
+
+        quoteContainer.addEventListener('mouseleave', () => {
+            chibiEinstein.style.display = 'none';
+        });
+    }
 });
