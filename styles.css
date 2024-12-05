@@ -5,8 +5,9 @@ body {
     color: #ccc;
     margin: 0;
     padding: 0;
-    cursor: url('../custom-cursor.png'), auto; /* Updated to reflect path */
+    cursor: url('../custom-cursor.png'), auto; 
 }
+
 
 /* Logo Styles */
 .logo {
@@ -15,12 +16,14 @@ body {
     margin-right: 10px;
 }
 
+
 /* Header Styles */
 header h1 {
     font-size: 1.8em;
     margin: 0;
     color: #fff;
 }
+
 
 /* Navigation Styles */
 nav ul {
@@ -33,33 +36,19 @@ nav ul {
     border-radius: 5px;
 }
 
-nav ul li {
-    position: relative;
-    margin: 0 15px;
-}
-
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    display: block;
+    display: block; /* Important for making the whole area clickable */
     padding: 10px;
 }
 
-/* Dropdown Menu Styles */
-nav ul li {
-    position: relative;
-    margin: 0 15px;
+/* Dropdown Styles */
+.dropdown {
+    position: relative; /* This is crucial for positioning the dropdown content */
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    display: block;
-    padding: 10px;
-}
-/* Dropdown Content */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -68,12 +57,15 @@ nav ul li a {
     background-color: #f9f9f9;
     min-width: 200px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 999; /* Ensures the dropdown is on top */
+    z-index: 999;
     padding: 10px 0;
-    pointer-events: auto; /* Ensures links are clickable */
+    pointer-events: auto;
 }
 
-/* Dropdown Links */
+.dropdown:hover .dropdown-content { /* Hover on the .dropdown, not the li */
+    display: block;
+}
+
 .dropdown-content a {
     color: #333;
     padding: 10px 15px;
@@ -84,6 +76,7 @@ nav ul li a {
 .dropdown-content a:hover {
     background-color: #e0e0e0;
 }
+
 
 
 /* Show Dropdown on Hover */
