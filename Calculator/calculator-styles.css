@@ -65,3 +65,21 @@ body {
     font-size: 1.2em;
     font-weight: bold;
 }
+
+
+/* Styles for the "Back to Home" link */
+.back-to-home {
+    display: block; /* Makes the link fill its container width */
+    text-align: center; /* Centers the link text */
+    margin-top: 20px; /* Adds some space above the link */
+    text-decoration: none; /* Removes default underline */
+    color: #007BFF;  /* Link color */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+
+.back-to-home:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
