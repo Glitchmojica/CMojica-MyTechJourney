@@ -33,6 +33,10 @@ nav ul {
     border-radius: 5px;
 }
 
+nav ul li {
+    position: relative; /* Ensure positioning for dropdown */
+}
+
 nav ul li a {
     color: white;
     text-decoration: none;
@@ -43,8 +47,7 @@ nav ul li a {
 
 /* Dropdown Styles */
 .dropdown {
-    position: relative; /* This is crucial for positioning the dropdown content */
-    pointer-events: none; /* Allows clicks to "fall through" to the link below */
+    position: relative; /* Keep it for positioning the dropdown content */
 }
 
 .dropdown-content {
@@ -59,7 +62,7 @@ nav ul li a {
     padding: 10px 0;
 }
 
-.dropdown:hover .dropdown-content { /* Hover on the .dropdown, not the li */
+nav ul li:hover .dropdown-content {
     display: block;
 }
 
@@ -68,18 +71,11 @@ nav ul li a {
     padding: 10px 15px;
     text-decoration: none;
     display: block;
-    pointer-events: auto; /* Makes the dropdown links clickable */
 }
 
 .dropdown-content a:hover {
     background-color: #e0e0e0;
 }
-
-/* Show Dropdown on Hover */
-nav ul li:hover .dropdown-content {
-    display: block;  /* This line was corrected */
-}
-
 
 /* Container Styles */
 .container {
