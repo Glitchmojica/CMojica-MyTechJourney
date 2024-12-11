@@ -77,8 +77,9 @@ nav ul li a {
 
 /* Show Dropdown on Hover */
 nav ul li:hover .dropdown-content {
-    display: block;
+    display: block;  /* This line was corrected */
 }
+
 
 /* Container Styles */
 .container {
