@@ -8,7 +8,6 @@ body {
     cursor: url('../custom-cursor.png'), auto; 
 }
 
-
 /* Logo Styles */
 .logo {
     max-width: 150px;
@@ -16,14 +15,12 @@ body {
     margin-right: 10px;
 }
 
-
 /* Header Styles */
 header h1 {
     font-size: 1.8em;
     margin: 0;
     color: #fff;
 }
-
 
 /* Navigation Styles */
 nav ul {
@@ -47,6 +44,7 @@ nav ul li a {
 /* Dropdown Styles */
 .dropdown {
     position: relative; /* This is crucial for positioning the dropdown content */
+    pointer-events: none; /* Allows clicks to "fall through" to the link below */
 }
 
 .dropdown-content {
@@ -59,7 +57,6 @@ nav ul li a {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 999;
     padding: 10px 0;
-    pointer-events: auto;
 }
 
 .dropdown:hover .dropdown-content { /* Hover on the .dropdown, not the li */
@@ -71,13 +68,12 @@ nav ul li a {
     padding: 10px 15px;
     text-decoration: none;
     display: block;
+    pointer-events: auto; /* Makes the dropdown links clickable */
 }
 
 .dropdown-content a:hover {
     background-color: #e0e0e0;
 }
-
-
 
 /* Show Dropdown on Hover */
 nav ul li:hover .dropdown-content {
