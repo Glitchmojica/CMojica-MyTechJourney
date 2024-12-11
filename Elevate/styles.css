@@ -1,0 +1,206 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #4E3B31;
+}
+
+/* Background images for specific pages */
+
+/* Background image for index page */
+#index-page {
+    background-image: url('elevator.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    min-height: 100vh; /* Ensure background covers the full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background images for music page */
+#music-page {
+    background-image: url('moshpit.jpg'); /* Assuming image is in the same directory */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    min-height: 100vh; /* Ensure background covers the full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* General section styles */
+section {
+    margin: 50px auto;
+    width: 80%;
+    background-color: rgba(250, 243, 224, 0.8);
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    color: #4E3B31;
+}
+
+/* Quote Section */
+#quote-section {
+    text-align: center;
+    margin: 50px auto;
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+#quote-text {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #4E3B31;
+}
+
+#quote-author {
+    font-size: 1.2em;
+    color: #555;
+}
+
+#chibi-einstein {
+    width: 100px;
+    position: absolute;
+    bottom: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+#quote-container:hover #chibi-einstein {
+    opacity: 1;
+    bottom: 0;
+    animation: dance 1s infinite alternate ease-in-out;
+}
+
+@keyframes dance {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    50% { transform: translateX(-50%) rotate(10deg); }
+    100% { transform: translateX(-50%) rotate(-10deg); }
+}
+
+/* Navigation menu */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #333; /* Dark background for nav bar */
+}
+
+nav ul li {
+    position: relative; /* Needed for dropdowns */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #555; /* Color change on hover */
+    border-radius: 5px;
+}
+
+/* Dropdown menu styles */
+nav ul li:hover > .dropdown {
+    display: block; /* Show the dropdown on hover */
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.dropdown a {
+    padding: 10px 20px;
+    text-align: left;
+    color: white;
+}
+
+.dropdown a:hover {
+    background-color: #555;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: #4E3B31;
+}
+
+/* Gallery styles */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;  /* Ensures aspect ratio is preserved */
+    max-height: 300px;  /* Sets a reasonable height */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Section */
+.product-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product {
+    background-color: rgba(250, 243, 224, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.add-to-cart {
+    background-color: #4E3B31;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* About & Contact Page Styles */
+#about-contact-page {
+    background-image: url('about_background.jpg'); /* Replace with your image name */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    min-height: 100vh; /* Ensure background covers the full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* Adjust section styles as needed to mirror index.py styles */
+#about-section,
+#contact-section {
+    /* Add styles for margins, padding, text alignment, etc. based on your index.py styles */
+}
