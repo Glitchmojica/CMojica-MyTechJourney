@@ -11,14 +11,18 @@
     <header>
         <img src="CSM-LOGO.png" alt="Elevate Logo" class="logo">
         <h1>My Tech Journey</h1>
+        <div class="menu-toggle" onclick="toggleMenu()"></div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active-link">Home</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropbtn" onclick="return false;">Class Assignments &#9662;</a>
-                    <div class="dropdown-content">
-                        <a href="Calculator/index.html">Calculator</a>
-                    </div>
+                    <a href="#">Class Projects</a>
+                    <ul class="dropdown-content">
+                        <li><a href="islamic_website/index.html">Islamic Website</a></li>
+                        <li><a href="mpg_calculator/index.html">Miles Per Gallon Calculator</a></li>
+                        <li><a href="mortgage_calculator/mortgage.htm">Mortgage Calculator</a></li>
+                        <li><a href="invoice_calculator/invoice.html">Invoice Calculator</a></li>
+                    </ul>
                 </li>
             </ul>
         </nav>
