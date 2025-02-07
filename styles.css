@@ -8,7 +8,7 @@
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #fff; /* Changed to white for better contrast */
+    color: #fff;
     margin: 0;
     padding: 0;
     cursor: url('../custom-cursor.png'), auto;
@@ -99,11 +99,12 @@ nav ul li:hover .dropdown-content {
 
 /* Text Styles */
 p {
-    color: #fff; /* Ensure paragraph text is white */
+    color: #ffffff;
     text-align: left;
-    font-weight: normal; /* Changed from bold for better readability */
-    line-height: 1.6; /* Added for better readability */
-    margin-bottom: 15px; /* Added for spacing between paragraphs */
+    font-weight: normal;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Headshot Styles */
@@ -211,6 +212,10 @@ footer {
 #quote-section:hover {
     transform: scale(1.05);
     background-color: #d3d3d3;
+}
+
+#quote-text, #quote-author {
+    color: #333;
 }
 
 /* Chibi Einstein */
