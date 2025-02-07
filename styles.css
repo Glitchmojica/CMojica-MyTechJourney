@@ -1,11 +1,21 @@
 /* General Styles */
+:root {
+    --color-text: #fff;
+    --color-bg: #171717;
+    --color-link: #ff0000;
+}
+
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     color: #ccc;
     margin: 0;
     padding: 0;
-    cursor: url('../custom-cursor.png'), auto; 
+    cursor: url('../custom-cursor.png'), auto;
+}
+
+body.tutorial {
+    background-color: var(--color-bg);
 }
 
 /* Logo Styles */
@@ -34,20 +44,20 @@ nav ul {
 }
 
 nav ul li {
-    position: relative; /* Ensure positioning for dropdown */
+    position: relative;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    display: block; /* Important for making the whole area clickable */
+    display: block;
     padding: 10px;
 }
 
 /* Dropdown Styles */
 .dropdown {
-    position: relative; /* Keep it for positioning the dropdown content */
+    position: relative;
 }
 
 .dropdown-content {
@@ -116,7 +126,8 @@ nav ul li:hover .dropdown-content {
     opacity: 1;
 }
 
-.slider-container img, .slider-container video {
+.slider-container img, 
+.slider-container video {
     width: 100%;
     height: auto;
     display: block;
@@ -163,7 +174,8 @@ nav ul li:hover .dropdown-content {
     transition: background-color 0.6s ease;
 }
 
-.dot.active, .dot:hover {
+.dot.active, 
+.dot:hover {
     background-color: #717171;
 }
 
@@ -217,37 +229,31 @@ footer {
     100% { transform: translate(-50%, -50%) rotate(-5deg) scale(1); }
 }
 
-/* mouse cursor */
-body.tutorial {
-    --color-text: #fff;
-    --color-bg: #171717;
-    --color-link: #ff0000;
-    background-color: var(--color-bg);
-  }
-  
-  .page {
+/* Mouse Cursor Styles */
+.page {
     position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .page__inner {
+    cursor: none;
+}
+
+.page__inner {
     display: flex;
     justify-content: center;
     width: 100%;
-  }
-  
-  .cursor {
+}
+
+.cursor {
     position: fixed;
     left: 0;
     top: 0;
     pointer-events: none;
-  }
-  
-  .cursor--small {
+}
+
+.cursor--small {
     width: 5px;
     height: 5px;
     left: -2.5px;
@@ -255,15 +261,10 @@ body.tutorial {
     border-radius: 50%;
     z-index: 11000;
     background: var(--color-text);
-  }
-  
-  .cursor--canvas {
+}
+
+.cursor--canvas {
     width: 100vw;
     height: 100vh;
     z-index: 12000;
-  }
-  
-  .page, .page a {
-    cursor: none;
-  }
-  
+}
