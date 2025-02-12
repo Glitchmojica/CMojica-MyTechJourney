@@ -12,6 +12,7 @@ body {
     color: var(--color-text);
     margin: 0;
     padding: 0;
+    cursor: url('../custom-cursor.png'), auto;
 }
 
 /* Logo Styles */
@@ -64,6 +65,8 @@ nav ul li a {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
 }
 
 /* Text Styles */
@@ -88,7 +91,7 @@ p {
     max-width: 800px;
     position: relative;
     margin: auto;
-    height: 400px; /* Adjust based on your image/video height */
+    height: 400px;
     overflow: hidden;
 }
 
@@ -163,12 +166,19 @@ p {
 
 /* Quote Section */
 #quote-section {
+    position: relative;
+    padding: 20px;
     background-color: #ffffff;
     color: #333333;
-    padding: 20px;
     border-radius: 8px;
     margin: 20px 0;
     text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#quote-section:hover {
+    transform: scale(1.05);
+    background-color: #d3d3d3;
 }
 
 #quote-text {
@@ -179,6 +189,31 @@ p {
 
 #quote-author {
     font-weight: bold;
+}
+
+/* Chibi Einstein */
+#chibi-einstein {
+    max-width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    z-index: 1;
+}
+
+#quote-section:hover #chibi-einstein {
+    opacity: 1;
+    animation: dance 1s infinite alternate;
+}
+
+@keyframes dance {
+    0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+    25% { transform: translate(-60%, -60%) rotate(10deg) scale(1.1); }
+    50% { transform: translate(-40%, -50%) rotate(-10deg) scale(1); }
+    75% { transform: translate(-50%, -40%) rotate(5deg) scale(0.9); }
+    100% { transform: translate(-50%, -50%) rotate(-5deg) scale(1); }
 }
 
 /* Footer Styles */
@@ -196,4 +231,44 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Mouse Cursor Styles */
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: none;
+}
+
+.page__inner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+}
+
+.cursor--small {
+    width: 5px;
+    height: 5px;
+    left: -2.5px;
+    top: -2.5px;
+    border-radius: 50%;
+    z-index: 11000;
+    background: var(--color-text);
+}
+
+.cursor--canvas {
+    width: 100vw;
+    height: 100vh;
+    z-index: 12000;
 }
