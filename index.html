@@ -3,61 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christopher Mojica - Tech Journey</title>
+    <title>My Tech Journey - Christopher Mojica</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
-<body id="index-page" class="tutorial">
+<body>
     <header>
         <img src="CSM-LOGO.png" alt="Christopher Mojica Logo" class="logo">
         <h1>My Tech Journey</h1>
-        <div class="menu-toggle" onclick="toggleMenu()"></div>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active-link">Home</a></li>
-                <li class="dropdown">
-                    <a href="#">Class Projects</a>
-                    <ul class="dropdown-content">
-                        <li><a href="Calculator/calculator.html">Miles Per Gallon Calculator</a></li>
-                        <li><a href="Elevate/index.html">Elevate Website</a></li>
-                        <li><a href="mortgage_calculator/mortgage.htm">Mortgage Calculator</a></li>
-                        <li><a href="invoice_calculator/invoice.html">Invoice Calculator</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
     </header>
 
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Class Projects</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
-        <!-- Slider content here -->
-    </div>
-
-    <h2>Welcome to My Tech Journey!</h2>
-    <div class="headshot">
-        <img src="CSM-PROFESSIONAL.jpg" alt="Professional Headshot" class="responsive-img">
-    </div>
-    <p>
-        Hi, I'm Christopher Mojica, a passionate Computer Information Systems student at Bronx Community College. Technology isn't just an academic pursuit for me; it's a creative medium through which I bring my ideas to life. Whether it's software development, web design, or digital art, I'm always looking for ways to push the boundaries of what I can create and how I can make an impact.
-    </p>
-    <p>
-        On this page, you'll discover my projects and collaborations that span tech, music, artwork, and fashion design. Each piece represents a unique milestone in my journey, and I'm excited to share it with you. My goal is to connect with fellow enthusiasts, collaborators, and mentors who share a vision of leveraging technology to make a difference. Thank you for stopping by, and I invite you to explore my work and reach out if our interests align!
-    </p>
-
-    <section id="quote-section">
-        <div id="quote-container">
-            <h2 id="quote-text">&ldquo;Creativity is intelligence having fun.&rdquo;</h2>
-            <p id="quote-author">- Albert Einstein</p>
-            <img id="chibi-einstein" src="chibi-einstein.png" alt="Chibi Albert Einstein">
+        <h2>Welcome to My Tech Journey!</h2>
+        
+        <div class="headshot">
+            <img src="CSM-PROFESSIONAL.jpg" alt="Christopher Mojica">
         </div>
-    </section>
 
-    <!-- Cursor elements for custom cursor effects -->
-    <div class="cursor cursor--small"></div>
-    <canvas class="cursor cursor--canvas" resize></canvas>
+        <div class="slider-container">
+            <div class="slide active">
+                <img src="Historyof1111Marcus.JPG" alt="History of 1111 Marcus">
+                <div class="caption">Exploring the history of 1111 Marcus.</div>
+            </div>
+            <div class="slide">
+                <img src="MarcusAveHallway.JPG" alt="Marcus Ave Hallway">
+                <div class="caption">A familiar hallway at Marcus Avenue.</div>
+            </div>
+            <div class="slide">
+                <video src="MarcusAveOffice.mp4" muted loop></video>
+                <div class="caption">A peek into one of our workspaces.</div>
+            </div>
+            <div class="slide">
+                <video src="BCC-HallofFame.mp4" muted loop></video>
+                <div class="caption">A glimpse at Bronx Community College's Hall of Fame.</div>
+            </div>
+
+            <a class="prev" onclick="changeSlide(-1)">❮</a>
+            <a class="next" onclick="changeSlide(1)">❯</a>
+        </div>
+
+        <div class="dots">
+            <span class="dot active" onclick="setSlide(0)"></span>
+            <span class="dot" onclick="setSlide(1)"></span>
+            <span class="dot" onclick="setSlide(2)"></span>
+            <span class="dot" onclick="setSlide(3)"></span>
+        </div>
+
+        <p>
+            Hi, I'm Christopher Mojica, a passionate Computer Information Systems student at Bronx Community College. Technology isn't just an academic pursuit for me; it's a creative medium through which I bring my ideas to life. Whether it's software development, web design, or digital art, I'm always looking for ways to push the boundaries of what I can create and how I can make an impact.
+        </p>
+
+        <p>
+            On this page, you'll discover my projects and collaborations that span tech, music, artwork, and fashion design. Each piece represents a unique milestone in my journey, and I'm excited to share it with you. My goal is to connect with fellow enthusiasts, collaborators, and mentors who share a vision of leveraging technology to make a difference. Thank you for stopping by, and I invite you to explore my work and reach out if our interests align!
+        </p>
+
+        <section id="quote-section">
+            <h2 id="quote-text">"Creativity is intelligence having fun."</h2>
+            <p id="quote-author">- Albert Einstein</p>
+        </section>
+    </div>
 
     <footer>
         <p>&copy; 2025 Christopher Mojica. All Rights Reserved.</p>
         <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
