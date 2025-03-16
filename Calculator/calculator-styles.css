@@ -16,7 +16,7 @@ body {
 
 /* Logo Styles */
 .logo {
-    max-width: 100px;
+    max-width: 50px; /* Adjusted logo size */
     height: auto;
     margin-right: 10px;
 }
