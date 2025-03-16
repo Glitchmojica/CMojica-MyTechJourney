@@ -8,34 +8,31 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Use a lighter background for the calculator page */
-    color: #333;
+    background-color: var(--color-bg);
+    color: var(--color-text);
     margin: 0;
     padding: 0;
 }
 
 /* Logo Styles */
 .logo {
-    text-align: center;  /* Center the logo */
-    padding: 20px;
-    background-color: var(--color-bg); /* Maintain the header background */
+    max-width: 100px;
+    height: auto;
+    margin-right: 10px;
 }
 
-.logo img {
-    max-width: 150px;
-}
-
-/* Header Styles - Simplified for calculator page*/
+/* Header Styles */
 header {
-    padding: 0; /* Remove padding since it's handled by .logo now */
+    background-color: var(--color-bg);
+    padding: 20px;
+    display: flex;
+    align-items: center;
 }
 
-header h1 { /* If you still want an h1, style it */
+header h1 {
     font-size: 1.8em;
     margin: 0;
     color: #fff;
-    text-align: center; /* Center the h1 if used */
-    padding: 10px; /* Add padding to the h1 */
 }
 
 /* Navigation Styles - Keep these for consistent navigation */
@@ -89,13 +86,22 @@ nav ul li a {
     display: block;
 }
 
+/* Container Styles */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
 /* Calculator Styles - Integrate and refine */
 .calculator {
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
     background-color: white;
-    border-radius: 8px; /* Consistent border-radius with original styles*/
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
@@ -103,7 +109,7 @@ nav ul li a {
 .calculator h1 {
     margin-bottom: 20px;
     font-size: 1.5em;
-    color: var(--color-nav); /* Use a color from the color scheme */
+    color: var(--color-nav);
 }
 
 .calculator label {
@@ -148,13 +154,13 @@ nav ul li a {
     text-align: center;
     margin-top: 20px;
     text-decoration: none;
-    color: var(--color-nav); /* Use the nav link color */
+    color: var(--color-nav);
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .back-to-home:hover {
-    color: #0056b3; /* Slightly darker hover color */
+    color: #0056b3;
 }
 
 /* Footer Styles */
@@ -163,8 +169,8 @@ footer {
     padding: 20px;
     background-color: var(--color-footer);
     color: white;
-    margin-top: 50px; /* Space the footer from content */
-    clear: both; /* Ensures footer is below floated elements */
+    margin-top: 50px;
+    clear: both;
 }
 
 footer a {
