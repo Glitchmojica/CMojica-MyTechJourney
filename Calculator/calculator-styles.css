@@ -64,7 +64,7 @@ nav ul li a {
 }
 
 /* Dropdown Styles (unchanged) */
-.dropdown-content { 
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -88,7 +88,6 @@ nav ul li a {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
 
 /* Calculator Styles - Integrate and refine */
 .calculator {
@@ -142,7 +141,6 @@ nav ul li a {
     font-size: 1.2em;
     font-weight: bold;
 }
-
 
 /* Back to Home Link – Make consistent with other links*/
 .back-to-home {
