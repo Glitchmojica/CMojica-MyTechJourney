@@ -16,7 +16,7 @@ body {
 
 /* Logo Styles */
 .logo {
-    max-width: 50px; /* Adjusted logo size */
+    max-width: 50px;
     height: auto;
     margin-right: 10px;
 }
@@ -35,7 +35,7 @@ header h1 {
     color: #fff;
 }
 
-/* Navigation Styles - Keep these for consistent navigation */
+/* Navigation Styles */
 nav {
     background-color: var(--color-nav);
     padding: 10px 0;
@@ -60,7 +60,7 @@ nav ul li a {
     font-weight: bold;
 }
 
-/* Dropdown Styles (unchanged) */
+/* Dropdown Styles */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -95,60 +95,61 @@ nav ul li a {
     border-radius: 8px;
 }
 
-/* Calculator Styles - Integrate and refine */
+/* Calculator Styles */
 .calculator {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.calculator h2 {
-    margin-bottom: 20px;
-    font-size: 1.5em;
-    color: var(--color-nav);
+.calculator-icon {
+    position: relative;
+    width: 200px;
+    height: 200px;
 }
 
-.calculator label {
-    display: block;
-    margin: 10px 0 5px;
-    text-align: left;
+.calculator-icon .icon {
+    width: 100%;
+    height: 100%;
+    background-color: #ffa500;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.calculator-icon .operator {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.calculator-icon .operator .symbol {
+    font-size: 24px;
     font-weight: bold;
+    color: #fff;
 }
 
-.calculator input {
-    width: calc(100% - 22px);
+.calculator-icon .input-field {
+    width: 80%;
+    background-color: #fff;
+    border-radius: 5px;
     padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.calculator button {
-    background-color: #007BFF;
-    color: white;
+.calculator-icon .input-field input {
+    width: 100%;
     border: none;
-    padding: 10px 15px;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    outline: none;
+    font-size: 16px;
 }
 
-.calculator button:hover {
-    background-color: #0056b3;
-}
-
-#result {
-    margin-top: 20px;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-/* Back to Home Link – Make consistent with other links*/
+/* Back to Home Link */
 .back-to-home {
     display: block;
     text-align: center;
