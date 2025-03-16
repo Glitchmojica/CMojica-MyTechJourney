@@ -1,26 +1,102 @@
+/* General Styles */
+:root {
+    --color-text: #fff;
+    --color-bg: #1a2a3a;
+    --color-nav: #00509e;
+    --color-footer: #004080;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
+    background-color: #f4f4f4; /* Use a lighter background for the calculator page */
     color: #333;
     margin: 0;
     padding: 0;
 }
 
+/* Logo Styles */
 .logo {
-    text-align: center;
+    text-align: center;  /* Center the logo */
     padding: 20px;
+    background-color: var(--color-bg); /* Maintain the header background */
 }
 
 .logo img {
     max-width: 150px;
 }
 
+/* Header Styles - Simplified for calculator page*/
+header {
+    padding: 0; /* Remove padding since it's handled by .logo now */
+}
+
+header h1 { /* If you still want an h1, style it */
+    font-size: 1.8em;
+    margin: 0;
+    color: #fff;
+    text-align: center; /* Center the h1 if used */
+    padding: 10px; /* Add padding to the h1 */
+}
+
+/* Navigation Styles - Keep these for consistent navigation */
+nav {
+    background-color: var(--color-nav);
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Dropdown Styles (unchanged) */
+.dropdown-content { 
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Calculator Styles - Integrate and refine */
 .calculator {
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 8px; /* Consistent border-radius with original styles*/
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
@@ -28,6 +104,7 @@ body {
 .calculator h1 {
     margin-bottom: 20px;
     font-size: 1.5em;
+    color: var(--color-nav); /* Use a color from the color scheme */
 }
 
 .calculator label {
@@ -67,19 +144,36 @@ body {
 }
 
 
-/* Styles for the "Back to Home" link */
+/* Back to Home Link – Make consistent with other links*/
 .back-to-home {
-    display: block; /* Makes the link fill its container width */
-    text-align: center; /* Centers the link text */
-    margin-top: 20px; /* Adds some space above the link */
-    text-decoration: none; /* Removes default underline */
-    color: #007BFF;  /* Link color */
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: var(--color-nav); /* Use the nav link color */
     font-weight: bold;
-    transition: color 0.3s ease; /* Smooth color transition on hover */
+    transition: color 0.3s ease;
 }
-
 
 .back-to-home:hover {
-    color: #0056b3; /* Darker blue on hover */
+    color: #0056b3; /* Slightly darker hover color */
 }
 
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-footer);
+    color: white;
+    margin-top: 50px; /* Space the footer from content */
+    clear: both; /* Ensures footer is below floated elements */
+}
+
+footer a {
+    color: #cccccc;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
