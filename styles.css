@@ -95,88 +95,47 @@ nav ul li a {
     border-radius: 8px;
 }
 
-/* Text Styles */
-p {
-    color: #ffffff;
-    text-align: left;
-    font-weight: normal;
-    line-height: 1.6;
-    margin-bottom: 15px;
+/* Calculator Styles */
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Headshot Styles */
-.headshot img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-/* Quote Section */
-#quote-section {
+.calculator-icon {
     position: relative;
-    padding: 20px;
-    background-color: #ffffff;
-    color: #333333;
-    border-radius: 8px;
-    margin: 20px 0;
-    text-align: center;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 200px;
+    height: 200px;
 }
 
-#quote-section:hover {
-    transform: scale(1.05);
-    background-color: #d3d3d3;
+.calculator-icon .icon {
+    width: 100%;
+    height: 100%;
+    background-color: #ffa500;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#quote-text {
-    font-size: 1.4em;
-    font-style: italic;
-    margin-bottom: 10px;
+.calculator-icon .input-field {
+    width: 80%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#quote-author {
+.calculator-icon .input-field input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
     font-weight: bold;
-}
-
-/* Chibi Einstein */
-#chibi-einstein {
-    max-width: 100px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease;
-    opacity: 0;
-    z-index: 1;
-}
-
-#quote-section:hover #chibi-einstein {
-    opacity: 1;
-    animation: dance 1s infinite alternate;
-}
-
-@keyframes dance {
-    0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
-    25% { transform: translate(-60%, -60%) rotate(10deg) scale(1.1); }
-    50% { transform: translate(-40%, -50%) rotate(-10deg) scale(1); }
-    75% { transform: translate(-50%, -40%) rotate(5deg) scale(0.9); }
-    100% { transform: translate(-50%, -50%) rotate(-5deg) scale(1); }
-}
-
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: var(--color-footer);
-    color: white;
-}
-
-footer a {
-    color: #cccccc;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
 }
