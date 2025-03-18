@@ -1,56 +1,29 @@
 /* General Styles */
-:root {
-    --color-text: #fff;
-    --color-bg: #1a2a3a;
-    --color-nav: #00509e;
-    --color-footer: #004080;
-}
-
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    background-color: #1a1a1a;
+    color: #fff;
     margin: 0;
     padding: 0;
-}
-
-/* Logo Styles */
-.logo {
-    max-width: 50px;
-    height: auto;
-    margin-right: 10px;
-}
-
-/* Header Styles */
-header {
-    background-color: var(--color-bg);
-    padding: 20px;
     display: flex;
+    justify-content: center;
     align-items: center;
-}
-
-header h1 {
-    font-size: 1.8em;
-    margin: 0;
-    color: #fff;
+    height: 100vh;
 }
 
 /* Container Styles */
 .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #333333;
     border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Calculator Styles */
 .calculator {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .calculator-icon {
@@ -65,7 +38,6 @@ header h1 {
     background-color: #ffa500;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -90,19 +62,4 @@ header h1 {
     margin-top: 20px;
     font-size: 1.2em;
     font-weight: bold;
-}
-
-/* Back to Home Link */
-.back-to-home {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    text-decoration: none;
-    color: var(--color-nav);
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.back-to-home:hover {
-    color: #0056b3;
 }
