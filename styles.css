@@ -14,14 +14,13 @@ body {
     padding: 0;
 }
 
-/* Logo Styles */
+/* Logo and Header Styles */
 .logo {
-    max-width: 100px;
-    height: auto;
+    width: 48px;
+    height: 48px;
     margin-right: 10px;
 }
 
-/* Header Styles */
 header {
     background-color: var(--color-bg);
     padding: 20px;
@@ -47,10 +46,10 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
+    gap: 20px;
 }
 
 nav ul li {
-    margin: 0 15px;
     position: relative;
 }
 
@@ -58,84 +57,125 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    padding: 10px;
 }
 
 /* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
+    top: 100%;
+    left: 0;
     background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* Container Styles */
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Content Styles */
 .container {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.headshot img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px 0;
+}
+
+h2 {
+    color: var(--color-text);
+    margin-bottom: 20px;
+}
+
+p {
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* Quote Section */
+#quote-section {
+    background-color: #ffffff;
     border-radius: 8px;
+    padding: 30px;
+    margin: 40px 0;
+    text-align: center;
 }
 
-/* Calculator Styles */
-.calculator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#quote-text {
+    color: #333;
+    font-size: 24px;
+    font-style: italic;
+    margin-bottom: 10px;
 }
 
-.calculator-icon {
-    position: relative;
-    width: 200px;
-    height: 200px;
-}
-
-.calculator-icon .icon {
-    width: 100%;
-    height: 100%;
-    background-color: #ffa500;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.calculator-icon .input-field {
-    width: 80%;
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.calculator-icon .input-field input {
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 16px;
-}
-
-#result {
-    margin-top: 20px;
-    font-size: 1.2em;
+#quote-author {
+    color: #333;
     font-weight: bold;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--color-footer);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    text-align: center;
+}
+
+footer a {
+    color: #ff69b4;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+    }
 }
