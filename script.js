@@ -1,17 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Initialize variables
     let currentSlideIndex = 0;
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
+    const slideInterval = 5000; // 5 seconds between automatic slides
+    let slideTimer;
 
+    // Slideshow Functions
     function showSlide(index) {
+        if (!slides.length) return;
+        
+        currentSlideIndex = (index + slides.length) % slides.length;
+        
         slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
-            dots[i].classList.toggle('active', i === index);
+            const isActive = i === currentSlideIndex;
+            slide.classList.toggle('active', isActive);
+            dots[i]?.classList.toggle('active', isActive);
 
             const video = slide.querySelector('video');
             if (video) {
-                if (i === index) {
-                    video.play();
+                if (isActive) {
+                    video.play().catch(err => console.warn("Video playback error:", err));
                 } else {
                     video.pause();
                     video.currentTime = 0;
@@ -20,45 +29,111 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    function changeSlide(n) {
-        currentSlideIndex = (currentSlideIndex + n + slides.length) % slides.length;
-        showSlide(currentSlideIndex);
+    function nextSlide() {
+        showSlide(currentSlideIndex + 1);
     }
 
-    function setSlide(index) {
-        currentSlideIndex = index;
-        showSlide(currentSlideIndex);
+    function previousSlide() {
+        showSlide(currentSlideIndex - 1);
     }
 
-    showSlide(currentSlideIndex);
+    function startSlideTimer() {
+        stopSlideTimer();
+        slideTimer = setInterval(nextSlide, slideInterval);
+    }
 
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    prevBtn.addEventListener('click', () => changeSlide(-1));
-    nextBtn.addEventListener('click', () => changeSlide(1));
+    function stopSlideTimer() {
+        if (slideTimer) clearInterval(slideTimer);
+    }
+
+    // Event Listeners for Slideshow
+    document.querySelector('.prev')?.addEventListener('click', () => {
+        previousSlide();
+        startSlideTimer();
+    });
+
+    document.querySelector('.next')?.addEventListener('click', () => {
+        nextSlide();
+        startSlideTimer();
+    });
 
     dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => setSlide(index));
+        dot.addEventListener('click', () => {
+            showSlide(index);
+            startSlideTimer();
+        });
     });
 
-    // Handle dropdown menu behavior
+    // Dropdown Menu Functionality
     const dropdown = document.querySelector('.dropdown');
-    dropdown.addEventListener('click', function(event) {
-        event.preventDefault();
-        const content = this.querySelector('.dropdown-content');
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-    });
+    if (dropdown) {
+        dropdown.addEventListener('mouseenter', function() {
+            this.querySelector('.dropdown-content')?.classList.add('show');
+        });
 
-    // Chibi Einstein hover logic
-    const quoteContainer = document.getElementById('quote-container');
+        dropdown.addEventListener('mouseleave', function() {
+            this.querySelector('.dropdown-content')?.classList.remove('show');
+        });
+    }
+
+    // Quote Section Animation
+    const quoteSection = document.getElementById('quote-section');
     const chibiEinstein = document.getElementById('chibi-einstein');
-    chibiEinstein.style.display = 'none';
 
-    quoteContainer.addEventListener('mouseover', () => {
-        chibiEinstein.style.display = 'block';
+    if (quoteSection && chibiEinstein) {
+        quoteSection.addEventListener('mouseenter', () => {
+            chibiEinstein.style.opacity = '1';
+        });
+
+        quoteSection.addEventListener('mouseleave', () => {
+            chibiEinstein.style.opacity = '0';
+        });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    }
+
+    // Keyboard Navigation
+    document.addEventListener('keydown', (e) => {
+        switch(e.key) {
+            case 'ArrowLeft':
+                previousSlide();
+                startSlideTimer();
+                break;
+            case 'ArrowRight':
+                nextSlide();
+                startSlideTimer();
+                break;
+            case 'Escape':
+                document.querySelector('.dropdown-content')?.classList.remove('show');
+                break;
+        }
     });
 
-    quoteContainer.addEventListener('mouseout', () => {
-        chibiEinstein.style.display = 'none';
+    // Initialize slideshow
+    showSlide(0);
+    startSlideTimer();
+
+    // Pause slideshow when tab is not visible
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            stopSlideTimer();
+        } else {
+            startSlideTimer();
+        }
     });
+
+    // Stop slideshow when user interacts with it
+    const sliderContainer = document.querySelector('.slider-container');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', stopSlideTimer);
+        sliderContainer.addEventListener('mouseleave', startSlideTimer);
+    }
 });
