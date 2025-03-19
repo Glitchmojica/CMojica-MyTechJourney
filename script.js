@@ -1,82 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Initialize variables
-    let currentSlideIndex = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    const slideInterval = 5000; // 5 seconds between automatic slides
-    let slideTimer;
-
-    // Slideshow Functions
-    function showSlide(index) {
-        if (!slides.length) return;
-        
-        currentSlideIndex = (index + slides.length) % slides.length;
-        
-        slides.forEach((slide, i) => {
-            const isActive = i === currentSlideIndex;
-            slide.classList.toggle('active', isActive);
-            dots[i]?.classList.toggle('active', isActive);
-
-            const video = slide.querySelector('video');
-            if (video) {
-                if (isActive) {
-                    video.play().catch(err => console.warn("Video playback error:", err));
-                } else {
-                    video.pause();
-                    video.currentTime = 0;
-                }
-            }
-        });
-    }
-
-    function nextSlide() {
-        showSlide(currentSlideIndex + 1);
-    }
-
-    function previousSlide() {
-        showSlide(currentSlideIndex - 1);
-    }
-
-    function startSlideTimer() {
-        stopSlideTimer();
-        slideTimer = setInterval(nextSlide, slideInterval);
-    }
-
-    function stopSlideTimer() {
-        if (slideTimer) clearInterval(slideTimer);
-    }
-
-    // Event Listeners for Slideshow
-    document.querySelector('.prev')?.addEventListener('click', () => {
-        previousSlide();
-        startSlideTimer();
-    });
-
-    document.querySelector('.next')?.addEventListener('click', () => {
-        nextSlide();
-        startSlideTimer();
-    });
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            showSlide(index);
-            startSlideTimer();
-        });
-    });
-
-    // Dropdown Menu Functionality
+    // Dropdown Menu Functionality (Unchanged)
     const dropdown = document.querySelector('.dropdown');
     if (dropdown) {
-        dropdown.addEventListener('mouseenter', function() {
+        dropdown.addEventListener('mouseenter', function () {
             this.querySelector('.dropdown-content')?.classList.add('show');
         });
 
-        dropdown.addEventListener('mouseleave', function() {
+        dropdown.addEventListener('mouseleave', function () {
             this.querySelector('.dropdown-content')?.classList.remove('show');
         });
     }
 
-    // Quote Section Animation
+    // Quote Section Animation (Unchanged)
     const quoteSection = document.getElementById('quote-section');
     const chibiEinstein = document.getElementById('chibi-einstein');
 
@@ -90,50 +25,51 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Mobile Menu Toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
-    
-    if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
+
+
+    // Slideshow Functionality
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
     }
 
-    // Keyboard Navigation
-    document.addEventListener('keydown', (e) => {
-        switch(e.key) {
-            case 'ArrowLeft':
-                previousSlide();
-                startSlideTimer();
-                break;
-            case 'ArrowRight':
-                nextSlide();
-                startSlideTimer();
-                break;
-            case 'Escape':
-                document.querySelector('.dropdown-content')?.classList.remove('show');
-                break;
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
         }
-    });
+       
+        slides[slideIndex - 1].style.display = "block";
+    }
 
-    // Initialize slideshow
-    showSlide(0);
-    startSlideTimer();
+    //Automatic Slideshow
+    setInterval(() => {
+        plusSlides(1);
+    }, 3000) // Change image every 3 seconds
 
-    // Pause slideshow when tab is not visible
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            stopSlideTimer();
-        } else {
-            startSlideTimer();
-        }
-    });
+    //Generate dots dynamically and add event listeners
+    const dotsContainer = document.querySelector('.dots-container');
+    const slides = document.querySelectorAll('.slide');
 
-    // Stop slideshow when user interacts with it
-    const sliderContainer = document.querySelector('.slider-container');
-    if (sliderContainer) {
-        sliderContainer.addEventListener('mouseenter', stopSlideTimer);
-        sliderContainer.addEventListener('mouseleave', startSlideTimer);
+    for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        dot.addEventListener('click', () => currentSlide(i + 1));
+        dotsContainer.appendChild(dot);
     }
 });
+
+
+
