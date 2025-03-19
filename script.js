@@ -27,49 +27,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    // Slideshow Functionality
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("slide");
-        let dots = document.getElementsByClassName("dot");
-
-        if (n > slides.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = slides.length }
-
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+    document.addEventListener("DOMContentLoaded", () => {
+        let slideIndex = 1;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        
+        // Create dots
+        const dotsContainer = document.querySelector('.dots-container');
+        slides.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dot.addEventListener('click', () => currentSlide(index + 1));
+            dotsContainer.appendChild(dot);
+        });
+    
+        function showSlides(n) {
+            let i;
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+    
+            // Hide all slides and pause videos
+            slides.forEach(slide => {
+                slide.style.display = "none";
+                const video = slide.querySelector('video');
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            });
+    
+            // Update dots
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[slideIndex-1].classList.add('active');
+    
+            // Show current slide and play video if present
+            slides[slideIndex-1].style.display = "block";
+            const currentVideo = slides[slideIndex-1].querySelector('video');
+            if (currentVideo) {
+                currentVideo.play().catch(e => console.log("Video play error:", e));
+            }
         }
-       
-        slides[slideIndex - 1].style.display = "block";
-    }
-
-    //Automatic Slideshow
-    setInterval(() => {
-        plusSlides(1);
-    }, 3000) // Change image every 3 seconds
-
-    //Generate dots dynamically and add event listeners
-    const dotsContainer = document.querySelector('.dots-container');
-    const slides = document.querySelectorAll('.slide');
-
-    for (let i = 0; i < slides.length; i++) {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        dot.addEventListener('click', () => currentSlide(i + 1));
-        dotsContainer.appendChild(dot);
-    }
-});
-
-
-
+    
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+    
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+    
+        // Event listeners for next/prev buttons
+        prevButton.addEventListener('click', () => plusSlides(-1));
+        nextButton.addEventListener('click', () => plusSlides(1));
+    
+        // Auto advance slides
+        setInterval(() => plusSlides(1), 5000);
+    
+        // Show first slide
+        showSlides(slideIndex);
+    });})
