@@ -1,14 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const inputField = document.querySelector('.input-field input');
+  const milesTraveledInput = document.getElementById('milesTraveled');
+  const gallonsUsedInput = document.getElementById('gallonsUsed');
   const mpgResult = document.getElementById("mpgResult");
 
-  inputField.addEventListener('input', () => {
-    const milesTraveled = inputField.value;
-    if (milesTraveled > 0) {
-      const mpg = milesTraveled / 1; // Assuming gallons used is 1 for simplicity
-      mpgResult.textContent = mpg.toFixed(2);
-    } else {
-      mpgResult.textContent = "0";
-    }
-  });
+  function calculateMPG() {
+      const milesTraveled = parseFloat(milesTraveledInput.value);
+      const gallonsUsed = parseFloat(gallonsUsedInput.value);
+
+      if (milesTraveled > 0 && gallonsUsed > 0) {
+          const mpg = milesTraveled / gallonsUsed;
+          mpgResult.textContent = mpg.toFixed(2);
+      } else {
+          mpgResult.textContent = "0";
+      }
+  }
+
+  // Add event listeners for real-time calculation
+  milesTraveledInput.addEventListener('input', calculateMPG);
+  gallonsUsedInput.addEventListener('input', calculateMPG);
+
+  // Make calculateMPG available globally for the button click
+  window.calculateMPG = calculateMPG;
 });
