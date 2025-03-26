@@ -6,7 +6,7 @@
     <meta name="description" content="Christopher Mojica's Tech Journey">
     <title>My Tech Journey - Christopher Mojica</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" async defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -41,10 +41,10 @@
             </div>
         </section>
 
-        <section class="slideshow-container">  
+        <section class="slideshow-container">
             <div class="slider-container">
-                <div class="slide">
-                    <video class="slide-video" autoplay muted loop>
+                <div class="slide active">
+                    <video class="slide-video" autoplay muted loop playsinline>
                         <source src="BCC-HallofFame.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -59,21 +59,21 @@
                     <div class="caption">The Iconic Marcus Avenue Hallway</div>
                 </div>
                 <div class="slide">
-                    <video class="slide-video" autoplay muted loop>
+                    <video class="slide-video" autoplay muted loop playsinline>
                         <source src="MarcusAve.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="caption">A Journey Through Marcus Avenue</div>
                 </div>
                 <div class="slide">
-                    <video class="slide-video" autoplay muted loop>
+                    <video class="slide-video" autoplay muted loop playsinline>
                         <source src="MarcusAveOffice.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="caption">Inside the Marcus Avenue Offices</div>
                 </div>
-                <a class="prev">❮</a>
-                <a class="next">❯</a>
+                <button type="button" class="prev" aria-label="Previous slide">❮</button>
+                <button type="button" class="next" aria-label="Next slide">❯</button>
             </div>
             <div class="dots-container"></div>
         </section>

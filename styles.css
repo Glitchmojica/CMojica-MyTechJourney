@@ -104,8 +104,31 @@ nav ul li a {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
+}
+
+/* Introduction Section */
+.intro {
     background-color: rgba(255,255,255,0.1);
     border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.headshot {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.bio p {
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
 /* Slideshow Styles */
@@ -116,29 +139,32 @@ nav ul li a {
     background: rgba(0,0,0,0.1);
     border-radius: 8px;
     overflow: hidden;
+    height: 450px;
 }
 
 .slider-container {
     position: relative;
-    height: 450px;
+    width: 100%;
+    height: 100%;
 }
 
 .slide {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    display: none;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
 .slide.active {
-    display: block;
     opacity: 1;
+    visibility: visible;
 }
 
 .slide img,
-.slide video,
 .slide-video {
     width: 100%;
     height: 100%;
@@ -150,22 +176,26 @@ nav ul li a {
     cursor: pointer;
     position: absolute;
     top: 50%;
-    width: auto;
+    transform: translateY(-50%);
     padding: 16px;
-    margin-top: -22px;
-    color: var(--color-text);
+    color: white;
     font-weight: bold;
     font-size: 24px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
     background-color: rgba(0,0,0,0.3);
+    border: none;
     z-index: 2;
 }
 
 .next {
     right: 0;
     border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
 }
 
 .prev:hover,
@@ -178,7 +208,7 @@ nav ul li a {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0,0,0,0.7);
     color: white;
     padding: 15px;
     text-align: center;
@@ -196,6 +226,9 @@ nav ul li a {
 .dots-container {
     text-align: center;
     padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     background: rgba(0,0,0,0.3);
 }
 
@@ -212,24 +245,42 @@ nav ul li a {
 
 .dot.active,
 .dot:hover {
-    background-color: var(--color-text);
+    background-color: white;
 }
 
 /* Quote Section */
 #quote-section {
-    position: relative;
-    padding: 20px;
     background-color: #fff;
     color: #333;
     border-radius: 8px;
+    padding: 20px;
     margin: 20px 0;
     text-align: center;
+    position: relative;
     transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.quote-wrapper {
+    position: relative;
+}
+
+#chibi-einstein {
+    max-width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 #quote-section:hover {
     transform: scale(1.05);
-    background-color: #d3d3d3;
+    background-color: #f0f0f0;
+}
+
+#quote-section:hover #chibi-einstein {
+    opacity: 1;
 }
 
 #quote-text {
@@ -242,114 +293,47 @@ nav ul li a {
     font-weight: bold;
 }
 
-/* Chibi Einstein */
-#chibi-einstein {
-    max-width: 100px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease;
-    opacity: 0;
-    z-index: 1;
-}
-
-#quote-section:hover #chibi-einstein {
-    opacity: 1;
-    animation: dance 1s infinite alternate;
-}
-
-@keyframes dance {
-    0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
-    25% { transform: translate(-60%, -60%) rotate(10deg) scale(1.1); }
-    50% { transform: translate(-40%, -50%) rotate(-10deg) scale(1); }
-    75% { transform: translate(-50%, -40%) rotate(5deg) scale(0.9); }
-    100% { transform: translate(-50%, -50%) rotate(-5deg) scale(1); }
-}
-
 /* Footer Styles */
 footer {
     text-align: center;
     padding: 20px;
     background-color: var(--color-footer);
     color: var(--color-text);
+    margin-top: 40px;
 }
 
-footer a {
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
     color: #ccc;
     text-decoration: none;
+    margin: 0 10px;
 }
 
-footer a:hover {
+.footer-links a:hover {
     text-decoration: underline;
 }
 
-/* Cursor Styles */
-.cursor {
-    position: fixed;
-    left: 0;
-    top: 0;
-    pointer-events: none;
-}
-
-.cursor--small {
-    width: 5px;
-    height: 5px;
-    left: -2.5px;
-    top: -2.5px;
-    border-radius: 50%;
-    z-index: 11000;
-    background: var(--color-text);
-}
-
-.cursor--canvas {
-    width: 100vw;
-    height: 100vh;
-    z-index: 12000;
-}
-
-/* Caption Styles */
-.caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-size: 1.1em;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: all 0.3s ease-in-out;
-}
-
-.slide {
-    position: relative;
-    overflow: hidden;
-}
-
-.slide:hover .caption {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Optional: Add animation for caption entrance */
-@keyframes captionFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Optional: Add responsive adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .slideshow-container {
+        height: 300px;
+    }
+
     .caption {
         font-size: 0.9em;
         padding: 10px;
+    }
+
+    .prev,
+    .next {
+        padding: 8px;
+        font-size: 18px;
     }
 }
