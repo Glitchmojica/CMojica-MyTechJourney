@@ -1,32 +1,42 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Untitled Document</title>
-<script language="JavaScript" src="calculator.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+  <meta charset="UTF-8">
+  <title>Home Mortgage Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="calculator.js" defer></script>
+</head>
+<body>
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">Calculator</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
 
-<body bgcolor="#CCFFFF">
-<div align="center"><font color="#666666" size="+5">Home Mortgage Calculator</font>
-</div>
-<table width="500" height="152" border="1" align="center" cellpadding="5" cellspacing="0" bgcolor="#CCFFCC">
-  <tr>
-	<td width="228" height="150" align="center" valign="middle">
-
-<div align="justify"><font color="#666666" face="Arial, Helvetica, sans-serif">
-To use the Home Mortgage Calculator enter the amount of the mortgage, the interest of the loan, and the number of years. Then click on the &quot;Calculate&quot; button to see an estimate of your monthly payment.
-</font></div>
-	
-	</td>
-
-	<td width="246" align="center" valign="middle">
-	<!-- add table and form inside this cell -->
-
-  
-
-
-
-	</td>
-</tr>
-</table>
+  <div class="container">
+    <h1>Home Mortgage Calculator</h1>
+    <div class="description">
+      <p>To use the Home Mortgage Calculator, enter the amount of the mortgage, the interest rate, and the number of years. Then click on the "Calculate" button to see an estimate of your monthly payment.</p>
+    </div>
+    <div class="form-box">
+      <form name="Form1">
+        <label>Mortgage Amount:<br>
+          <input type="text" name="Amount" size="15">
+        </label><br><br>
+        <label>Interest (e.g. 7.9):<br>
+          <input type="text" name="Rate" size="15">
+        </label><br><br>
+        <label>Years:<br>
+          <input type="text" name="Years" size="15">
+        </label><br><br>
+        <input type="button" value="Calculate" onClick="mortCalc(this.form)">
+        <input type="reset" value="Reset"><br><br>
+        <label>Your monthly payment:<br>
+          <input type="text" name="Payment" size="20" readonly>
+        </label>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
