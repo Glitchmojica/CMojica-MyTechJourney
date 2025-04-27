@@ -1,59 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Simple Form - Christopher Mojica">
-    <title>Simple Form - Christopher Mojica</title>
-    <link rel="stylesheet" href="../styles.css">
-    <script src="../script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Creative Services Order Form</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <img src="../CSM-LOGO.png" alt="Christopher Mojica Logo" class="logo">
-        <h1>Simple Form</h1>
-    </header>
 
-    <nav>
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Class Projects</a>
-                <div class="dropdown-content">
-                    <a href="../calculator/calculator.html">Miles Per Gallon Calculator</a>
-                    <a href="../Elevate/index.html">Elevate Website</a>
-                    <a href="../mortgage-calculator/index.html">Mortgage Calculator</a>
-                    <a href="../invoice_calculator/invoice.html">Invoice Calculator</a>
-                    <a href="../simple-form/index.html">Simple Form</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
-    <main class="container">
-        <section class="form-section">
-            <h2>Contact Me</h2>
-            <form id="contact-form" action="#" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+<div class="container">
+  <h2>Order Your Creative Services</h2>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+  <div class="row">
+    <div class="col-6">Website Development</div>
+    <div class="col-3">
+      <input type="number" value="0" class="qty" id="qty_web" />
+    </div>
+    <div class="col-2">
+      <input type="number" readonly value="0" id="price_web" />
+    </div>
+  </div>
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+  <div class="row">
+    <div class="col-6">Logo Design</div>
+    <div class="col-3">
+      <input type="number" value="0" class="qty" id="qty_logo" />
+    </div>
+    <div class="col-2">
+      <input type="number" readonly value="0" id="price_logo" />
+    </div>
+  </div>
 
-                <button type="submit" class="form-button">Submit</button>
-            </form>
-            <div id="form-response" class="form-response"></div>
-        </section>
-    </main>
+  <div class="row">
+    <div class="col-6">Music Production</div>
+    <div class="col-3">
+      <input type="number" value="0" class="qty" id="qty_music" />
+    </div>
+    <div class="col-2">
+      <input type="number" readonly value="0" id="price_music" />
+    </div>
+  </div>
 
-    <footer>
-        <p>© 2025 Christopher Mojica. All Rights Reserved.</p>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
-        </div>
-    </footer>
+  <div class="row">
+    <div class="col-6">Video Editing</div>
+    <div class="col-3">
+      <input type="number" value="0" class="qty" id="qty_video" />
+    </div>
+    <div class="col-2">
+      <input type="number" readonly value="0" id="price_video" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">Content Writing</div>
+    <div class="col-3">
+      <input type="number" value="0" class="qty" id="qty_content" />
+    </div>
+    <div class="col-2">
+      <input type="number" readonly value="0" id="price_content" />
+    </div>
+  </div>
+
+  <h3>Total: $<span id="total_value">0</span></h3>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
