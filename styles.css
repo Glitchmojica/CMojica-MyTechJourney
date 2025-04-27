@@ -20,6 +20,7 @@ header {
     padding: 20px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
@@ -129,6 +130,15 @@ nav ul li a {
 .bio p {
     line-height: 1.6;
     margin-bottom: 15px;
+}
+
+/* Model-Viewer Styles */
+model-viewer {
+    width: 100%;
+    height: 300px;
+    max-width: 500px;
+    margin: 0 auto;
+    display: block;
 }
 
 /* Slideshow Styles */
@@ -335,5 +345,9 @@ footer {
     .next {
         padding: 8px;
         font-size: 18px;
+    }
+
+    model-viewer {
+        height: 250px;
     }
 }
