@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Invoice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Service Invoice</h1>
+        <form id="invoice-form">
+            <div class="row">
+                <div class="col-6">Web Design ($500)</div>
+                <div class="col-3"><input type="number" value="0" class="qty" id="qty_web" min="0"></div>
+                <div class="col-3"><input type="number" value="0" readonly id="price_web"></div>
+            </div>
+            <div class="row">
+                <div class="col-6">Logo Design ($300)</div>
+                <div class="col-3"><input type="number" value="0" class="qty" id="qty_logo" min="0"></div>
+                <div class="col-3"><input type="number" value="0" readonly id="price_logo"></div>
+            </div>
+            <div class="row">
+                <div class="col-6">SEO Service ($400)</div>
+                <div class="col-3"><input type="number" value="0" class="qty" id="qty_seo" min="0"></div>
+                <div class="col-3"><input type="number" value="0" readonly id="price_seo"></div>
+            </div>
+            <div class="row">
+                <div class="col-6">Website Maintenance ($150)</div>
+                <div class="col-3"><input type="number" value="0" class="qty" id="qty_maintenance" min="0"></div>
+                <div class="col-3"><input type="number" value="0" readonly id="price_maintenance"></div>
+            </div>
+
+            <div class="row total-row">
+                <div class="col-6"><strong>Total:</strong></div>
+                <div class="col-6" id="total_value">$0</div>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
