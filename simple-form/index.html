@@ -3,49 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Invoice</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Simple Form - Christopher Mojica">
+    <title>Simple Form - Christopher Mojica</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js" defer></script>
 </head>
 <body>
+    <header>
+        <img src="../CSM-LOGO.png" alt="Christopher Mojica Logo" class="logo">
+        <h1>Simple Form</h1>
+    </header>
+
     <nav>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Class Projects</a>
+                <div class="dropdown-content">
+                    <a href="../calculator/calculator.html">Miles Per Gallon Calculator</a>
+                    <a href="../Elevate/index.html">Elevate Website</a>
+                    <a href="../mortgage-calculator/index.html">Mortgage Calculator</a>
+                    <a href="../invoice_calculator/invoice.html">Invoice Calculator</a>
+                    <a href="../simple-form/index.html">Simple Form</a>
+                </div>
+            </li>
         </ul>
     </nav>
 
-    <div class="container">
-        <h1>Service Invoice</h1>
-        <form id="invoice-form">
-            <div class="row">
-                <div class="col-6">Web Design ($500)</div>
-                <div class="col-3"><input type="number" value="0" class="qty" id="qty_web" min="0"></div>
-                <div class="col-3"><input type="number" value="0" readonly id="price_web"></div>
-            </div>
-            <div class="row">
-                <div class="col-6">Logo Design ($300)</div>
-                <div class="col-3"><input type="number" value="0" class="qty" id="qty_logo" min="0"></div>
-                <div class="col-3"><input type="number" value="0" readonly id="price_logo"></div>
-            </div>
-            <div class="row">
-                <div class="col-6">SEO Service ($400)</div>
-                <div class="col-3"><input type="number" value="0" class="qty" id="qty_seo" min="0"></div>
-                <div class="col-3"><input type="number" value="0" readonly id="price_seo"></div>
-            </div>
-            <div class="row">
-                <div class="col-6">Website Maintenance ($150)</div>
-                <div class="col-3"><input type="number" value="0" class="qty" id="qty_maintenance" min="0"></div>
-                <div class="col-3"><input type="number" value="0" readonly id="price_maintenance"></div>
-            </div>
+    <main class="container">
+        <section class="form-section">
+            <h2>Contact Me</h2>
+            <form id="contact-form" action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-            <div class="row total-row">
-                <div class="col-6"><strong>Total:</strong></div>
-                <div class="col-6" id="total_value">$0</div>
-            </div>
-        </form>
-    </div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-    <script src="script.js"></script>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit" class="form-button">Submit</button>
+            </form>
+            <div id="form-response" class="form-response"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Christopher Mojica. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        </div>
+    </footer>
 </body>
 </html>
