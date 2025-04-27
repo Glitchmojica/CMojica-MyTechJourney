@@ -8,67 +8,30 @@
 </head>
 <body>
 
+<header>
+    <img src="../CSM-LOGO.png" alt="Christopher Mojica Logo" class="logo">
+    <h1>Simple Form</h1>
+</header>
+
 <nav>
-  <a href="index.html">Home</a>
-  <a href="portfolio.html">Portfolio</a>
-  <a href="shop.html">Shop</a>
-  <a href="contact.html">Contact</a>
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Class Projects</a>
+            <div class="dropdown-content">
+                <a href="../calculator/calculator.html">Miles Per Gallon Calculator</a>
+                <a href="../Elevate/index.html">Elevate Website</a>
+                <a href="../mortgage-calculator/index.html">Mortgage Calculator</a>
+                <a href="../invoice_calculator/invoice.html">Invoice Calculator</a>
+                <a href="../simple-form/index.html">Simple Form</a>
+            </div>
+        </li>
+    </ul>
 </nav>
 
+<!-- Rest of your existing content -->
 <div class="container">
-  <h2>Order Your Creative Services</h2>
-
-  <div class="row">
-    <div class="col-6">Custom Music Track</div>
-    <div class="col-3">
-      <input type="number" value="0" class="qty" id="qty_music" />
-    </div>
-    <div class="col-2">
-      <input type="number" readonly value="0" id="price_music" />
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-6">Original Artwork</div>
-    <div class="col-3">
-      <input type="number" value="0" class="qty" id="qty_art" />
-    </div>
-    <div class="col-2">
-      <input type="number" readonly value="0" id="price_art" />
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-6">Website Design Package</div>
-    <div class="col-3">
-      <input type="number" value="0" class="qty" id="qty_web" />
-    </div>
-    <div class="col-2">
-      <input type="number" readonly value="0" id="price_web" />
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-6">Merchandise (T-Shirts, Stickers)</div>
-    <div class="col-3">
-      <input type="number" value="0" class="qty" id="qty_merch" />
-    </div>
-    <div class="col-2">
-      <input type="number" readonly value="0" id="price_merch" />
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-6">Content Creation Services</div>
-    <div class="col-3">
-      <input type="number" value="0" class="qty" id="qty_content" />
-    </div>
-    <div class="col-2">
-      <input type="number" readonly value="0" id="price_content" />
-    </div>
-  </div>
-
-  <h3>Total: $<span id="total_value">0</span></h3>
+  <!-- Your existing form content -->
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
