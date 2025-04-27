@@ -7,10 +7,18 @@
     <title>My Tech Journey - Christopher Mojica</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
     <header>
-        <img src="CSM-LOGO.png" alt="Christopher Mojica Logo" class="logo">
+        <model-viewer 
+            src="Mojicantosh_3D_Logo.glb" 
+            alt="Christopher Mojica 3D Logo" 
+            auto-rotate 
+            camera-controls 
+            ar 
+            style="width: 300px; height: 300px;">
+        </model-viewer>
         <h1>My Tech Journey</h1>
     </header>
 
