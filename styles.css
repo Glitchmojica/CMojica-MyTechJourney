@@ -21,12 +21,19 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.logo {
-    max-width: 100px;
+.video-logo-container {
+    max-width: 120px;
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.logo-video {
+    width: 100%;
     height: auto;
-    margin-right: 10px;
+    border-radius: 10px;
 }
 
 header h1 {
@@ -328,6 +335,12 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
     .container {
         padding: 10px;
     }
@@ -349,5 +362,9 @@ footer {
 
     model-viewer {
         height: 250px;
+    }
+
+    .video-logo-container {
+        margin-bottom: 10px;
     }
 }

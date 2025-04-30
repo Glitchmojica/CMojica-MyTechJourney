@@ -4,17 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevButton = document.querySelector('.prev');
     const nextButton = document.querySelector('.next');
 
-    // Create dots
-    const dotsContainer = document.querySelector('.dots-container');
-    if (dotsContainer && slides.length > 0) {
-        slides.forEach((_, index) => {
-            const dot = document.createElement('span');
-            dot.classList.add('dot');
-            dot.addEventListener('click', () => currentSlide(index + 1));
-            dotsContainer.appendChild(dot);
-        });
-    }
-
     function showSlides(n) {
         if (!slides.length) return;
 
@@ -47,13 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentVideo) {
             currentVideo.play().catch(e => console.log("Video play error:", e));
         }
-
-        // Update dots
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach(dot => dot.classList.remove('active'));
-        if (dots[slideIndex-1]) {
-            dots[slideIndex-1].classList.add('active');
-        }
     }
 
     function plusSlides(n) {
@@ -68,10 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (slides.length > 0) {
         slides[0].style.display = "block";
         slides[0].classList.add('active');
-        const firstDot = document.querySelector('.dot');
-        if (firstDot) {
-            firstDot.classList.add('active');
-        }
     }
 
     // Event listeners for next/prev buttons
