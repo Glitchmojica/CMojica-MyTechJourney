@@ -4,6 +4,9 @@
     --color-bg: #1a2a3a;
     --color-nav: #00509e;
     --color-footer: #004080;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+    --spacing-standard: 20px;
 }
 
 body {
@@ -17,16 +20,15 @@ body {
 /* Header Styles */
 header {
     background-color: var(--color-bg);
-    padding: 20px;
+    padding: var(--spacing-standard);
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 #logo-video {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
+    width: 300px;
+    height: 300px;
     margin: 0 auto;
     display: block;
 }
@@ -106,20 +108,20 @@ nav ul li a {
 .container {
     max-width: 800px;
     margin: 20px auto;
-    padding: 20px;
+    padding: var(--spacing-standard);
 }
 
 /* Introduction Section */
 .intro {
     background-color: rgba(255,255,255,0.1);
-    border-radius: 8px;
-    padding: 20px;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-standard);
     margin-bottom: 30px;
 }
 
 .headshot {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-standard);
 }
 
 .profile-image {
@@ -140,7 +142,7 @@ nav ul li a {
     position: relative;
     margin: 20px auto;
     background: rgba(0,0,0,0.1);
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     overflow: hidden;
     height: 450px;
 }
@@ -159,7 +161,8 @@ nav ul li a {
     height: 100%;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    transition: opacity var(--transition-speed) ease-in-out, 
+                visibility var(--transition-speed) ease-in-out;
 }
 
 .slide.active {
@@ -184,7 +187,7 @@ nav ul li a {
     color: white;
     font-weight: bold;
     font-size: 24px;
-    transition: 0.6s ease;
+    transition: var(--transition-speed) ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
     background-color: rgba(0,0,0,0.3);
@@ -218,7 +221,7 @@ nav ul li a {
     font-size: 1.1em;
     opacity: 0;
     transform: translateY(100%);
-    transition: all 0.3s ease-in-out;
+    transition: all var(--transition-speed) ease-in-out;
 }
 
 .slide.active .caption {
@@ -243,7 +246,7 @@ nav ul li a {
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
-    transition: background-color 0.6s ease;
+    transition: background-color var(--transition-speed) ease;
 }
 
 .dot.active,
@@ -255,12 +258,13 @@ nav ul li a {
 #quote-section {
     background-color: #fff;
     color: #333;
-    border-radius: 8px;
-    padding: 20px;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-standard);
     margin: 20px 0;
     text-align: center;
     position: relative;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform var(--transition-speed) ease, 
+                background-color var(--transition-speed) ease;
 }
 
 .quote-wrapper {
@@ -274,7 +278,7 @@ nav ul li a {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-speed) ease;
 }
 
 #quote-section:hover {
@@ -299,7 +303,7 @@ nav ul li a {
 /* Footer Styles */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: var(--spacing-standard);
     background-color: var(--color-footer);
     color: var(--color-text);
     margin-top: 40px;
@@ -341,6 +345,37 @@ footer {
     }
 
     #logo-video {
-        height: 250px;
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .slideshow-container,
+    nav,
+    .dots-container,
+    .prev,
+    .next {
+        display: none;
+    }
+
+    body {
+        color: #000;
+        background: #fff;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
     }
 }
