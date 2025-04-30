@@ -1,24 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Constants
-    const SCROLL_OFFSET = 100;
     const ANIMATION_DURATION = 300;
 
     // DOM Elements
     const logoVideo = document.querySelector('#logo-video');
     const navLinks = document.querySelectorAll('nav a');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    const serviceCards = document.querySelectorAll('.service-card');
-    const contactForm = document.querySelector('.contact-form form');
+    const contactForm = document.querySelector('.contact form');
+    const showcaseItems = document.querySelectorAll('.showcase-item');
 
     // Logo Video Handler
     function handleLogoVideo() {
         if (logoVideo) {
-            // Ensure video starts playing
             logoVideo.play().catch(error => {
                 console.warn("Logo video playback error:", error);
             });
 
-            // Add event listeners for continuous playback
             logoVideo.addEventListener('ended', () => {
                 logoVideo.currentTime = 0;
                 logoVideo.play().catch(error => {
@@ -26,13 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             });
 
-            // Handle loading errors
-            logoVideo.addEventListener('error', (e) => {
-                console.error("Logo video error:", e);
-                logoVideo.style.display = 'none';
-            });
-
-            // Ensure video plays when it becomes visible
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -46,31 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Smooth Scroll Function
-    function smoothScroll(target, duration) {
-        const targetPosition = target.getBoundingClientRect().top;
-        const startPosition = window.pageYOffset;
-        const distance = targetPosition - SCROLL_OFFSET;
-        let startTime = null;
-
-        function animation(currentTime) {
-            if (startTime === null) startTime = currentTime;
-            const timeElapsed = currentTime - startTime;
-            const run = ease(timeElapsed, startPosition, distance, duration);
-            window.scrollTo(0, run);
-            if (timeElapsed < duration) requestAnimationFrame(animation);
-        }
-
-        function ease(t, b, c, d) {
-            t /= d / 2;
-            if (t < 1) return c / 2 * t * t + b;
-            t--;
-            return -c / 2 * (t * (t - 2) - 1) + b;
-        }
-
-        requestAnimationFrame(animation);
-    }
-
     // Navigation Handler
     function handleNavigation() {
         navLinks.forEach(link => {
@@ -79,14 +43,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (href.startsWith('#') && href !== '#') {
                     e.preventDefault();
                     const target = document.querySelector(href);
-                    if (target) smoothScroll(target, ANIMATION_DURATION);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
             });
         });
     }
 
-    // Portfolio Items Animation
-    function handlePortfolioAnimation() {
+    // Showcase Items Animation
+    function handleShowcaseAnimation() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -95,23 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }, { threshold: 0.2 });
 
-        portfolioItems.forEach(item => {
+        showcaseItems.forEach(item => {
             observer.observe(item);
-        });
-    }
-
-    // Service Cards Animation
-    function handleServiceCardsAnimation() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.2 });
-
-        serviceCards.forEach(card => {
-            observer.observe(card);
         });
     }
 
@@ -121,25 +72,20 @@ document.addEventListener("DOMContentLoaded", () => {
             contactForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
-                // Add loading state
                 const submitButton = contactForm.querySelector('button');
                 const originalText = submitButton.textContent;
                 submitButton.textContent = 'Sending...';
                 submitButton.disabled = true;
 
                 try {
-                    // Here you would typically send the form data to your server
-                    // For now, we'll just simulate a submission
+                    // Simulate form submission
                     await new Promise(resolve => setTimeout(resolve, 1000));
-                    
-                    // Show success message
                     alert('Message sent successfully!');
                     contactForm.reset();
                 } catch (error) {
                     console.error('Form submission error:', error);
                     alert('There was an error sending your message. Please try again.');
                 } finally {
-                    // Reset button state
                     submitButton.textContent = originalText;
                     submitButton.disabled = false;
                 }
@@ -147,31 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Scroll Animation Handler
-    function handleScrollAnimation() {
-        const elements = document.querySelectorAll('.animate-on-scroll');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.2 });
-
-        elements.forEach(element => {
-            observer.observe(element);
-        });
-    }
-
     // Initialize Everything
     function init() {
         handleLogoVideo();
         handleNavigation();
-        handlePortfolioAnimation();
-        handleServiceCardsAnimation();
+        handleShowcaseAnimation();
         handleContactForm();
-        handleScrollAnimation();
     }
 
     init();

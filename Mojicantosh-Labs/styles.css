@@ -57,9 +57,8 @@ nav ul {
     justify-content: center;
     align-items: center;
     gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
@@ -75,110 +74,82 @@ nav ul li a:hover {
 }
 
 /* Main Content Styles */
-.container {
+main {
     max-width: 1200px;
     margin: 0 auto;
     padding: var(--spacing-standard);
 }
 
-/* Hero Section */
-#hero {
+/* Intro Section */
+.intro {
     text-align: center;
-    padding: 100px 20px;
-}
-
-#hero h2 {
-    font-size: 3em;
-    margin-bottom: 20px;
-}
-
-#hero p {
-    font-size: 1.5em;
-    color: var(--color-accent);
-}
-
-/* Services Grid */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
     padding: 40px 0;
 }
 
-.service-card {
-    background-color: var(--color-card-bg);
-    padding: 30px;
+.studio-showcase img {
+    max-width: 100%;
     border-radius: var(--border-radius);
-    transition: transform var(--transition-speed);
+    margin: 20px 0;
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
+.bio {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* Portfolio Grid */
-.portfolio-grid {
+/* Showcase Section */
+.showcase {
+    padding: 40px 0;
+}
+
+.showcase-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    padding: 40px 0;
 }
 
-.portfolio-item {
-    position: relative;
+.showcase-item {
+    background-color: var(--color-card-bg);
     border-radius: var(--border-radius);
     overflow: hidden;
+    padding: 20px;
 }
 
-.portfolio-item img {
+.showcase-item video {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
+    border-radius: var(--border-radius);
 }
 
-.portfolio-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.8);
-    padding: 20px;
-    transform: translateY(100%);
-    transition: transform var(--transition-speed);
-}
-
-.portfolio-item:hover .portfolio-overlay {
-    transform: translateY(0);
-}
-
-/* Process Steps */
-.process-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    padding: 40px 0;
-}
-
-.step {
+.showcase-item h3 {
     text-align: center;
-    padding: 20px;
+    margin: 15px 0;
 }
 
-/* Contact Form */
-.contact-form {
+/* Philosophy Section */
+#design-philosophy {
+    text-align: center;
+    padding: 60px 0;
+    background-color: var(--color-card-bg);
+    margin: 40px 0;
+    border-radius: var(--border-radius);
+}
+
+/* Contact Section */
+.contact {
     max-width: 600px;
     margin: 0 auto;
     padding: 40px 0;
 }
 
-.contact-form form {
+.contact form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.contact-form input,
-.contact-form textarea {
+.contact input,
+.contact textarea {
     padding: 15px;
     border: none;
     border-radius: var(--border-radius);
@@ -186,7 +157,7 @@ nav ul li a:hover {
     color: var(--color-text);
 }
 
-.contact-form button {
+.contact button {
     padding: 15px 30px;
     border: none;
     border-radius: var(--border-radius);
@@ -197,7 +168,7 @@ nav ul li a:hover {
     transition: background-color var(--transition-speed);
 }
 
-.contact-form button:hover {
+.contact button:hover {
     background-color: var(--color-nav);
 }
 
@@ -205,38 +176,24 @@ nav ul li a:hover {
 footer {
     background-color: var(--color-footer);
     color: var(--color-text);
-    padding: 40px 20px;
-    margin-top: 60px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
 }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
+.footer-links {
+    margin-top: 15px;
 }
 
-.social-links {
-    display: flex;
-    gap: 20px;
-}
-
-.social-links a {
+.footer-links a {
     color: var(--color-text);
     text-decoration: none;
+    margin: 0 10px;
     transition: color var(--transition-speed);
 }
 
-.social-links a:hover {
+.footer-links a:hover {
     color: var(--color-accent);
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 /* Responsive Design */
@@ -246,19 +203,13 @@ footer {
         gap: 10px;
     }
 
-    #hero h2 {
-        font-size: 2em;
-    }
-
-    .services-grid,
-    .portfolio-grid,
-    .process-steps {
-        grid-template-columns: 1fr;
-    }
-
     #logo-video {
         width: 200px;
         height: 200px;
+    }
+
+    .showcase-grid {
+        grid-template-columns: 1fr;
     }
 }
 
