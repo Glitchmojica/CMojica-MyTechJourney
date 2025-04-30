@@ -11,6 +11,43 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextButton = document.querySelector('.next');
     const dotsContainer = document.querySelector('.dots-container');
     const slideshowContainer = document.querySelector('.slideshow-container');
+    const logoVideo = document.querySelector('#logo-video');
+
+    // Logo Video Handler
+    function handleLogoVideo() {
+        if (logoVideo) {
+            // Ensure video starts playing
+            logoVideo.play().catch(error => {
+                console.warn("Logo video playback error:", error);
+            });
+
+            // Add event listeners for continuous playback
+            logoVideo.addEventListener('ended', () => {
+                logoVideo.currentTime = 0;
+                logoVideo.play().catch(error => {
+                    console.warn("Logo video replay error:", error);
+                });
+            });
+
+            // Handle loading errors
+            logoVideo.addEventListener('error', (e) => {
+                console.error("Logo video error:", e);
+                logoVideo.style.display = 'none';
+            });
+
+            // Ensure video plays when it becomes visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        logoVideo.play().catch(error => {
+                            console.warn("Logo video visibility playback error:", error);
+                        });
+                    }
+                });
+            });
+            observer.observe(logoVideo);
+        }
+    }
 
     // Initialize Dots Navigation
     function initializeDots() {
@@ -58,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Video Handling Functions
     function handleVideoReset(slide) {
         const video = slide.querySelector('video');
-        if (video) {
+        if (video && video !== logoVideo) {
             video.pause();
             video.currentTime = 0;
         }
@@ -66,9 +103,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function handleVideoPlay(slide) {
         const video = slide.querySelector('video');
-        if (video) {
+        if (video && video !== logoVideo) {
             video.play().catch(error => {
-                console.warn("Video playback error:", error);
+                console.warn("Slide video playback error:", error);
             });
         }
     }
@@ -144,6 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize Everything
     function init() {
+        handleLogoVideo(); // Initialize logo video first
         initializeDots();
         initializeSlideshow();
         setupEventListeners();

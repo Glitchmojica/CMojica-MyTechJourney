@@ -22,8 +22,11 @@ header {
     background-color: var(--color-bg);
     padding: var(--spacing-standard);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
 }
 
 #logo-video {
@@ -31,12 +34,17 @@ header {
     height: 300px;
     margin: 0 auto;
     display: block;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.1);
+    object-fit: cover;
 }
 
 header h1 {
-    font-size: 1.8em;
+    font-size: 2.5em;
     margin: 0;
     color: var(--color-text);
+    text-align: center;
+    width: 100%;
 }
 
 /* Navigation Styles */
@@ -86,6 +94,7 @@ nav ul li a {
     min-width: 200px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     z-index: 1000;
+    border-radius: var(--border-radius);
 }
 
 .dropdown:hover .dropdown-content {
@@ -325,6 +334,19 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    #logo-video {
+        width: 200px;
+        height: 200px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
     .container {
         padding: 10px;
     }
@@ -342,11 +364,6 @@ footer {
     .next {
         padding: 8px;
         font-size: 18px;
-    }
-
-    #logo-video {
-        width: 200px;
-        height: 200px;
     }
 }
 
