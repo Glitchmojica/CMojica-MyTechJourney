@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mojicantosh Labs - Creative Digital Solutions">
+    <title>Mojicantosh Labs - Web & Graphic Design Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <video id="logo-video" autoplay muted loop playsinline style="width: 300px; height: 300px;">
+            <source src="Mojicantosh3DLogo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1>Mojicantosh Labs</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Portfolio</a>
+                <div class="dropdown-content">
+                    <a href="#web-design">Web Design</a>
+                    <a href="#graphic-design">Graphic Design</a>
+                    <a href="#branding">Branding</a>
+                    <a href="#ui-ux">UI/UX Design</a>
+                </div>
+            </li>
+            <li><a href="#about">About</a></li>
+            <li><a href="https://cmojica.github.io/CMojica-MyTechJourney-main/">My Tech Journey</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="intro">
+            <h2>Welcome to Mojicantosh Labs</h2>
+            <div class="studio-showcase">
+                <img src="design-studio.jpg" alt="Mojicantosh Labs Studio" class="studio-image">
+            </div>
+            <div class="bio">
+                <p>At Mojicantosh Labs, we blend technology with creativity to craft exceptional digital experiences. Our approach combines innovative web development with striking graphic design to help brands stand out in the digital landscape.</p>
+                <p>From responsive websites to compelling brand identities, we create solutions that not only look remarkable but also deliver results. Our commitment to excellence and attention to detail ensures every project exceeds expectations.</p>
+            </div>
+        </section>
+
+        <section class="showcase-container">
+            <div class="showcase-grid">
+                <div class="showcase-item">
+                    <video class="showcase-video" autoplay muted loop playsinline>
+                        <source src="web-design-reel.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="caption">Web Design Excellence</div>
+                </div>
+                <div class="showcase-item">
+                    <img src="graphic-design-portfolio.jpg" alt="Graphic Design Portfolio">
+                    <div class="caption">Creative Graphic Solutions</div>
+                </div>
+                <div class="showcase-item">
+                    <img src="brand-identity-showcase.jpg" alt="Brand Identity Projects">
+                    <div class="caption">Brand Identity Development</div>
+                </div>
+                <div class="showcase-item">
+                    <video class="showcase-video" autoplay muted loop playsinline>
+                        <source src="ui-ux-demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="caption">UI/UX Design Innovation</div>
+                </div>
+                <button type="button" class="prev" aria-label="Previous showcase">❮</button>
+                <button type="button" class="next" aria-label="Next showcase">❯</button>
+            </div>
+            <div class="dots-container"></div>
+        </section>
+
+        <section id="design-philosophy">
+            <div class="philosophy-wrapper">
+                <img id="design-icon" src="design-thinking.png" alt="Design Thinking Icon">
+                <div class="philosophy-content">
+                    <h2 id="philosophy-text">"Design is not just what it looks like and feels like. Design is how it works."</h2>
+                    <p id="philosophy-author">- Steve Jobs</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Let's Create Something Amazing</h2>
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Tell us about your project" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Mojicantosh Labs. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="#" target="_blank">LinkedIn</a> | 
+            <a href="#" target="_blank">Behance</a> | 
+            <a href="#" target="_blank">Dribbble</a>
+        </div>
+    </footer>
+</body>
+</html>
