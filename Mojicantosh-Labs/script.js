@@ -1,12 +1,38 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Constants
     const ANIMATION_DURATION = 300;
+    const QUOTE_INTERVAL = 3000;
 
     // DOM Elements
     const logoVideo = document.querySelector('#logo-video');
     const navLinks = document.querySelectorAll('nav a');
     const contactForm = document.querySelector('.contact form');
     const showcaseItems = document.querySelectorAll('.showcase-item');
+    const quoteContainer = document.getElementById('quote-container');
+
+    // Quotes Array
+    const quotes = [
+        {
+            text: "Design is not just what it looks like and feels like. Design is how it works.",
+            author: "Steve Jobs"
+        },
+        {
+            text: "Music is the universal language of mankind.",
+            author: "Henry Wadsworth Longfellow"
+        },
+        {
+            text: "Fashion is the armor to survive the reality of everyday life.",
+            author: "Bill Cunningham"
+        },
+        {
+            text: "Simplicity is the ultimate sophistication.",
+            author: "Leonardo da Vinci"
+        },
+        {
+            text: "Everything is designed, but few things are designed well.",
+            author: "Brian Reed"
+        }
+    ];
 
     // Logo Video Handler
     function handleLogoVideo() {
@@ -66,6 +92,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Quote Rotation Handler
+    function handleQuoteRotation() {
+        let currentIndex = 0;
+
+        function updateQuote() {
+            const quote = quotes[currentIndex];
+            quoteContainer.style.opacity = 0;
+
+            setTimeout(() => {
+                quoteContainer.innerHTML = `
+                    <h2>"${quote.text}"</h2>
+                    <p>- ${quote.author}</p>
+                `;
+                quoteContainer.style.opacity = 1;
+            }, 500);
+
+            currentIndex = (currentIndex + 1) % quotes.length;
+        }
+
+        updateQuote(); // Initial quote
+        setInterval(updateQuote, QUOTE_INTERVAL);
+    }
+
     // Contact Form Handler
     function handleContactForm() {
         if (contactForm) {
@@ -98,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         handleLogoVideo();
         handleNavigation();
         handleShowcaseAnimation();
+        handleQuoteRotation();
         handleContactForm();
     }
 
