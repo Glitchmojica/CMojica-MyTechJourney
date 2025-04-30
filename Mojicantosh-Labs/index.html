@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mojicantosh Labs - Creative Digital Solutions">
-    <title>Mojicantosh Labs - Web & Graphic Design Studio</title>
+    <meta name="description" content="Mojicantosh Labs - Creative Multi-Disciplinary Studio">
+    <title>Mojicantosh Labs - Design & Production Studio</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
@@ -19,20 +19,18 @@
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="CMojica-MyTechJourney-main/Elevate/index.html">Web Portfolio</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="CMojica-MyTechJourney-main/index.html">My Tech Journey</a></li>
+            <li><a href="../Elevate/index.html">Web Design</a></li>
+            <li><a href="../index.html">Tech Portfolio</a></li>
+            <li><a href="clothing/index.html">Fashion Lab</a></li>
+            <li><a href="music/index.html">Music Production</a></li>
         </ul>
     </nav>
 
     <main>
         <section class="intro">
-            <h2>Welcome to Mojicantosh Labs</h2>
-            <div class="studio-showcase">
-                <img src="design-studio.jpg" alt="Mojicantosh Labs Studio">
-            </div>
+            <h2>Creative Multi-Disciplinary Studio</h2>
             <div class="bio">
-                <p>At Mojicantosh Labs, we blend technology with creativity to craft exceptional digital experiences. Our approach combines innovative web development with striking graphic design to help brands stand out in the digital landscape.</p>
+                <p>Welcome to Mojicantosh Labs, where technology meets creativity across multiple disciplines. From web development and graphic design to music production and fashion, we create unique digital and physical experiences that push boundaries and set trends.</p>
             </div>
         </section>
 
@@ -42,29 +40,49 @@
                     <video autoplay muted loop playsinline>
                         <source src="web-design-reel.mp4" type="video/mp4">
                     </video>
-                    <h3>Web Design Excellence</h3>
+                    <h3>Digital Design Excellence</h3>
                 </div>
                 <div class="showcase-item">
                     <video autoplay muted loop playsinline>
-                        <source src="ui-ux-demo.mp4" type="video/mp4">
+                        <source src="music-production.mp4" type="video/mp4">
                     </video>
-                    <h3>UI/UX Design Innovation</h3>
+                    <h3>Music Production</h3>
+                </div>
+                <div class="showcase-item">
+                    <video autoplay muted loop playsinline>
+                        <source src="fashion-showcase.mp4" type="video/mp4">
+                    </video>
+                    <h3>Fashion Design</h3>
+                </div>
+                <div class="showcase-item">
+                    <video autoplay muted loop playsinline>
+                        <source src="graphic-design-reel.mp4" type="video/mp4">
+                    </video>
+                    <h3>Graphic Design</h3>
                 </div>
             </div>
         </section>
 
         <section id="design-philosophy">
             <div class="philosophy-content">
-                <h2>"Design is not just what it looks like and feels like. Design is how it works."</h2>
-                <p>- Steve Jobs</p>
+                <div id="quote-container">
+                    <!-- Quotes will be dynamically inserted here -->
+                </div>
             </div>
         </section>
 
         <section class="contact">
-            <h2>Let's Create Something Amazing</h2>
+            <h2>Let's Create Something Extraordinary</h2>
             <form action="#" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
+                <select name="service" required>
+                    <option value="">Select Service</option>
+                    <option value="web">Web Design</option>
+                    <option value="music">Music Production</option>
+                    <option value="fashion">Fashion Design</option>
+                    <option value="graphic">Graphic Design</option>
+                </select>
                 <textarea name="message" placeholder="Tell us about your project" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
@@ -76,8 +94,54 @@
         <div class="footer-links">
             <a href="#" target="_blank">LinkedIn</a> | 
             <a href="#" target="_blank">Behance</a> | 
-            <a href="#" target="_blank">Dribbble</a>
+            <a href="#" target="_blank">Dribbble</a> | 
+            <a href="#" target="_blank">SoundCloud</a> | 
+            <a href="#" target="_blank">Instagram</a>
         </div>
     </footer>
+
+    <script>
+        // Array of quotes for the philosophy section
+        const quotes = [
+            {
+                text: "Design is not just what it looks like and feels like. Design is how it works.",
+                author: "Steve Jobs"
+            },
+            {
+                text: "Music is the universal language of mankind.",
+                author: "Henry Wadsworth Longfellow"
+            },
+            {
+                text: "Fashion is the armor to survive the reality of everyday life.",
+                author: "Bill Cunningham"
+            },
+            {
+                text: "Simplicity is the ultimate sophistication.",
+                author: "Leonardo da Vinci"
+            },
+            {
+                text: "Everything is designed, but few things are designed well.",
+                author: "Brian Reed"
+            }
+        ];
+
+        // Function to update quotes
+        function updateQuote() {
+            const quoteContainer = document.getElementById('quote-container');
+            let currentIndex = 0;
+
+            setInterval(() => {
+                const quote = quotes[currentIndex];
+                quoteContainer.innerHTML = `
+                    <h2>"${quote.text}"</h2>
+                    <p>- ${quote.author}</p>
+                `;
+                currentIndex = (currentIndex + 1) % quotes.length;
+            }, 3000);
+        }
+
+        // Initialize quote rotation when DOM is loaded
+        document.addEventListener('DOMContentLoaded', updateQuote);
+    </script>
 </body>
 </html>
