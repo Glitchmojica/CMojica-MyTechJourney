@@ -1,88 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Christopher Mojica - Tech Journey</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Christopher Mojica's Tech Journey">
+    <title>My Tech Journey - Christopher Mojica</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Logo" class="logo" />
-        <h1>Christopher Mojica's Tech Journey</h1>
+        <video id="logo-video" autoplay muted loop playsinline style="width: 300px; height: 300px;">
+            <source src="Mojicantosh 3D Logo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1>My Tech Journey</h1>
     </header>
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="#home">Home</a></li>
             <li class="dropdown">
-                <a href="#">Projects</a>
+                <a href="#" class="dropbtn">Class Projects</a>
                 <div class="dropdown-content">
-                    <a href="music.html">Music</a>
-                    <a href="artwork.html">Artwork</a>
-                    <a href="clothing.html">Clothing</a>
-                    <a href="code.html">Code</a>
+                    <a href="calculator/calculator.html">Miles Per Gallon Calculator</a>
+                    <a href="Elevate/index.html">Elevate Website</a>
+                    <a href="mortgage-calculator/index.html">Mortgage Calculator</a>
+                    <a href="invoice_calculator/invoice.html">Invoice Calculator</a>
+                    <a href="simple-form/index.html">Simple Form</a>
                 </div>
             </li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <div class="container">
+    <main class="container">
         <section class="intro">
+            <h2>Welcome to My Tech Journey!</h2>
             <div class="headshot">
-                <img src="headshot.jpg" alt="Christopher Mojica" class="profile-image" />
+                <img src="CSM-PROFESSIONAL.jpg" alt="Christopher Mojica" class="profile-image">
             </div>
             <div class="bio">
-                <p>Hello! I'm Christopher Mojica, a passionate software engineer, musician, and visual artist on a journey to merge technology with creativity. My mission is to tell stories, inspire others, and build innovative experiences that connect people.</p>
-                <p>Whether it's coding a new app, producing a track, or designing streetwear, I'm committed to pushing boundaries and documenting it all here.</p>
+                <p>Hi, I'm Christopher Mojica, a passionate Computer Information Systems student at Bronx Community College. Technology isn't just an academic pursuit for me; it's a creative medium through which I bring my ideas to life. Whether it's software development, web design, or digital art, I'm always looking for ways to push the boundaries of what I can create and how I can make an impact.</p>
+                <p>On this page, you'll discover my projects and collaborations that span tech, music, artwork, and fashion design. Each piece represents a unique milestone in my journey, and I'm excited to share it with you. My goal is to connect with fellow enthusiasts, collaborators, and mentors who share a vision of leveraging technology to make a difference. Thank you for stopping by, and I invite you to explore my work and reach out if our interests align!</p>
             </div>
         </section>
 
         <section class="slideshow-container">
             <div class="slider-container">
                 <div class="slide active">
-                    <img src="slide1.jpg" alt="Music Studio">
-                    <div class="caption">In the studio cooking up fresh sounds</div>
+                    <video class="slide-video" autoplay muted loop playsinline>
+                        <source src="BCC-HallofFame.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="caption">BCC Hall of Fame - Where Excellence is Honored</div>
                 </div>
                 <div class="slide">
-                    <img src="slide2.jpg" alt="Code Workspace">
-                    <div class="caption">Building the future one line at a time</div>
+                    <img src="Historyof1111Marcus.JPG" alt="History of Marcus Hall">
+                    <div class="caption">The Rich History of Marcus Hall</div>
                 </div>
                 <div class="slide">
-                    <img src="slide3.jpg" alt="Artwork">
-                    <div class="caption">Art that reflects the spirit of the culture</div>
+                    <img src="MarcusAveHallway.JPG" alt="Marcus Avenue Hallway">
+                    <div class="caption">The Iconic Marcus Avenue Hallway</div>
                 </div>
-                <button class="prev">&#10094;</button>
-                <button class="next">&#10095;</button>
-                <!-- Dots removed -->
+                <div class="slide">
+                    <video class="slide-video" autoplay muted loop playsinline>
+                        <source src="MarcusAve.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="caption">A Journey Through Marcus Avenue</div>
+                </div>
+                <div class="slide">
+                    <video class="slide-video" autoplay muted loop playsinline>
+                        <source src="MarcusAveOffice.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="caption">Inside the Marcus Avenue Offices</div>
+                </div>
+                <button type="button" class="prev" aria-label="Previous slide">❮</button>
+                <button type="button" class="next" aria-label="Next slide">❯</button>
             </div>
-        </section>
-
-        <section>
-            <model-viewer src="model.glb" alt="3D Model" auto-rotate camera-controls background-color="#FFFFFF"></model-viewer>
+            <div class="dots-container"></div>
         </section>
 
         <section id="quote-section">
             <div class="quote-wrapper">
-                <img src="chibi-einstein.png" id="chibi-einstein" alt="Chibi Einstein">
-                <div id="quote-text">"Imagination is more important than knowledge."</div>
-                <div id="quote-author">- Albert Einstein</div>
+                <img id="chibi-einstein" src="chibi-einstein.png" alt="Chibi Einstein">
+                <div class="quote-content">
+                    <h2 id="quote-text">"Creativity is intelligence having fun."</h2>
+                    <p id="quote-author">- Albert Einstein</p>
+                </div>
             </div>
         </section>
-    </div>
+    </main>
 
     <footer>
-        <div>&copy; 2025 Christopher Mojica</div>
+        <p>© 2025 Christopher Mojica. All Rights Reserved.</p>
         <div class="footer-links">
-            <a href="https://github.com/krsbreezi" target="_blank">GitHub</a>
-            <a href="https://linkedin.com/in/christophermojica" target="_blank">LinkedIn</a>
-            <a href="https://youtube.com/@KrsBreezi" target="_blank">YouTube</a>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
         </div>
     </footer>
-
-    <script src="slider.js"></script>
 </body>
 </html>
