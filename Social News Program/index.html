@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Social News Program</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <title>Social News Program</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <main>
-    <h1>Welcome to the Social News Program</h1>
-    <p>This app uses browser alert and prompt windows for input. Refresh this page to restart the program.</p>
-    
-    <nav>
-      <a href="index.html">Restart</a>
-      <a href="/Users/thenotoriousm.a.c./Desktop/CMojica-MyTechJourney-main/index.html" target="_blank">Home</a>
-    </nav>
-  </main>
+    <main>
+        <h1>Social News Program</h1>
+        <p class="intro">Welcome to your personalized news aggregator. Add, view, or remove news links using the controls below.</p>
+
+        <div class="controls">
+            <button onclick="showLinks()">Show Links</button>
+            <button onclick="addNewLink()">Add Link</button>
+            <button onclick="removeLink()">Remove Link</button>
+            <button onclick="quitProgram()">Quit</button>
+        </div>
+
+        <div id="linksList" class="links-container">
+            <!-- Links will be displayed here -->
+        </div>
+
+        <nav>
+            <a href="index.html">Restart</a>
+            <a href="/index.html">Home</a>
+        </nav>
+    </main>
 </body>
 </html>

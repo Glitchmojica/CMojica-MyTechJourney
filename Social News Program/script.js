@@ -1,96 +1,93 @@
-// Social News Program
+// Initialize links array with curated news examples
+const links = [
+  {
+      title: "NASA's Latest Mars Discovery",
+      url: "https://www.nasa.gov/mars-exploration",
+      author: "Space Science Reporter"
+  },
+  {
+      title: "Breakthrough in Renewable Energy",
+      url: "https://www.science.org/energy-news",
+      author: "Environmental Correspondent"
+  },
+  {
+      title: "Global Economic Forecast 2024",
+      url: "https://www.reuters.com/markets",
+      author: "Economics Editor"
+  }
+];
 
-// Link list storage
-const links = [];
+// Function to format link for display
+function formatLink(link, index) {
+  return `
+      <div class="link-item">
+          <h3>${index + 1}. ${link.title}</h3>
+          <p><a href="${link.url}" target="_blank">${link.url}</a></p>
+          <p>Posted by: ${link.author}</p>
+      </div>
+  `;
+}
 
-// Function to format and show all links
+// Function to show all links
 function showLinks() {
+  const linksListDiv = document.getElementById('linksList');
+  
   if (links.length === 0) {
-    alert("No links available.");
-  } else {
-    let output = "Current Links:\n\n";
-    links.forEach((link, index) => {
-      output += `${index}: "${link.title}" (${link.url}) by ${link.author}\n`;
-    });
-    alert(output);
+      linksListDiv.innerHTML = '<p style="text-align: center;">No links available</p>';
+      return;
   }
+
+  linksListDiv.innerHTML = links.map((link, index) => formatLink(link, index)).join('');
 }
 
-// Function to ensure URL starts with http:// or https://
-function formatUrl(url) {
-  if (!url.startsWith("http://") && !url.startsWith("https://")) {
-    return "http://" + url;
-  }
-  return url;
-}
-
-// Function to add a link
-function addLink() {
+// Function to add a new link
+function addNewLink() {
   const title = prompt("Enter the link title:");
-  const rawUrl = prompt("Enter the link URL:");
-  const author = prompt("Enter the author's name:");
+  if (!title) return;
 
-  if (!title || !rawUrl || !author) {
-    alert("All fields are required to add a link.");
-    return;
+  let url = prompt("Enter the link URL:");
+  if (!url) return;
+
+  // Add http:// if protocol is missing
+  if (!url.startsWith("http://") && !url.startsWith("https://")) {
+      url = "http://" + url;
   }
 
-  const url = formatUrl(rawUrl);
+  const author = prompt("Enter the author name:");
+  if (!author) return;
+
   links.push({ title, url, author });
-  alert("Link added successfully.");
+  showLinks();
+  alert("Link added successfully!");
 }
 
 // Function to remove a link
 function removeLink() {
   if (links.length === 0) {
-    alert("No links to remove.");
-    return;
+      alert("No links to remove!");
+      return;
   }
 
-  let index;
-  let validIndex = false;
-
-  while (!validIndex) {
-    index = prompt(`Enter the index of the link to remove (0 to ${links.length - 1}):`);
-    index = Number(index);
-    if (!isNaN(index) && index >= 0 && index < links.length) {
-      validIndex = true;
-    } else {
-      alert("Invalid index. Please try again.");
-    }
+  const index = parseInt(prompt(`Enter the number of the link to remove (1-${links.length}):`));
+  
+  if (isNaN(index) || index < 1 || index > links.length) {
+      alert("Invalid link number!");
+      return;
   }
 
-  links.splice(index, 1);
-  alert("Link removed successfully.");
+  const removedLink = links.splice(index - 1, 1)[0];
+  showLinks();
+  alert(`Removed: ${removedLink.title}`);
 }
 
-// Main menu loop
-function startMenu() {
-  let userChoice;
-
-  do {
-    userChoice = prompt(
-      "Choose an action:\n1: Show links\n2: Add a link\n3: Remove a link\n0: Quit"
-    );
-
-    switch (userChoice) {
-      case "1":
-        showLinks();
-        break;
-      case "2":
-        addLink();
-        break;
-      case "3":
-        removeLink();
-        break;
-      case "0":
-        alert("Thank you for using the Social News Program. Goodbye!");
-        break;
-      default:
-        alert("Invalid choice. Please enter 0, 1, 2, or 3.");
-    }
-  } while (userChoice !== "0");
+// Function to quit the program
+function quitProgram() {
+  if (confirm("Are you sure you want to quit?")) {
+      window.location.href = "/index.html";
+  }
 }
 
-// Start the app
-startMenu();
+// Initialize the program when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  showLinks();
+});
