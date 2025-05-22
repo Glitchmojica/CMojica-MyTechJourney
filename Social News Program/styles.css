@@ -10,6 +10,30 @@ main {
   margin: auto;
 }
 
+.top-nav {
+  margin-bottom: 30px;
+  text-align: right;
+}
+
+.top-nav a {
+  display: inline-block;
+  margin-left: 15px;
+  padding: 10px 15px;
+  background-color: #0066cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.top-nav a.home-link {
+  background-color: #004999;
+}
+
+.top-nav a:hover {
+  background-color: #004999;
+}
+
 h1 {
   color: #0066cc;
   text-align: center;
@@ -25,11 +49,13 @@ h1 {
 .controls {
   margin: 30px 0;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 button {
-  display: inline-block;
-  margin: 0 10px 10px 0;
   padding: 10px 15px;
   background-color: #0066cc;
   color: white;
@@ -37,6 +63,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   font-size: 1em;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -74,37 +101,24 @@ button:hover {
   color: #666;
 }
 
-nav {
-  margin-top: 30px;
-  text-align: center;
-}
-
-nav a {
-  display: inline-block;
-  margin-right: 15px;
-  padding: 10px 15px;
-  background-color: #0066cc;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-nav a:hover {
-  background-color: #004999;
-}
-
 @media (max-width: 600px) {
   body {
       margin: 20px;
   }
 
-  .controls button {
-      display: block;
-      width: 100%;
-      margin: 0 0 10px 0;
+  .controls {
+      flex-direction: column;
   }
 
-  nav a {
+  button {
+      width: 100%;
+  }
+
+  .top-nav {
+      text-align: center;
+  }
+
+  .top-nav a {
       display: block;
       margin: 0 0 10px 0;
   }
