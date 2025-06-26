@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="About & Contact - Christopher Mojica's Tech Journey">
+  <title>About & Contact | My Tech Journey</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body id="about-contact-page">
+  <header>
+    <video id="logo-video" autoplay muted loop playsinline style="width: 300px; height: 300px;">
+      <source src="Mojicantosh3DLogo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <h1>My Tech Journey</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Class Projects</a>
+        <div class="dropdown-content">
+          <a href="calculator/calculator.html">Miles Per Gallon Calculator</a>
+          <a href="Elevate/index.html">Elevate Website</a>
+          <a href="mortgage-calculator/index.html">Mortgage Calculator</a>
+          <a href="simple-form/index.html">Simple Form</a>
+          <a href="Social News Program/index.html">Social News Program</a>
+        </div>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="Mojicantosh-Labs/index.html" target="_blank">Mojicantosh Labs</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section id="about-section" class="bio-section">
+      <h2>About Christopher Mojica</h2>
+      <p>Hey there — I’m Christopher Mojica, a creative technologist blending code, music, visual design, and fashion into meaningful digital experiences. My journey began with a fascination for how things work and evolved into an obsession with building systems that not only function but express who I am.</p>
+      <p>This website serves as a living archive of my growth — from coding projects and software experiments to original beats, artwork, and clothing concepts. My goal is to keep leveling up, share knowledge, collaborate with other creatives, and innovate across disciplines.</p>
+      <p>If you resonate with this vibe, let's build something great together.</p>
+    </section>
+
+    <section id="contact-section" class="connect-section">
+      <h2>Let’s Collaborate</h2>
+      <form action="send_email.php" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div class="social-links">
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+        <a href="mailto:your.email@example.com">Email</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Christopher Mojica. All Rights Reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Terms of Service</a> | 
+      <a href="https://mojicantoshlabs.com" target="_blank">Mojicantosh Labs</a>
+    </div>
+  </footer>
+</body>
+</html>
